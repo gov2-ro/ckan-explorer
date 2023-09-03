@@ -1,8 +1,9 @@
 """ 
 ## Roadmap
 
+- [x] save csv
 - [ ] parametrize instance, dataFolder - prepare for gh actions
-- [ ] save csv
+- [ ] add header columns for stats
 
  """
 
