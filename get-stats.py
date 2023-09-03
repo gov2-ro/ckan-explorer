@@ -15,10 +15,28 @@ from time import sleep
 import sys, os 
 from tqdm import tqdm
 
-ckan_instance = 'https://data.gov.ro'
-data_root = 'data/'
-# ckan_instance = 'https://data.gov.md/ckan'
-# data_root = 'data/data.gov.md/'
+batch_size = 50
+
+# ckan_instance = 'https://data.gov.ro'
+# data_root = 'data/'
+
+# ckan_instance = "https://data.gov.md/ckan"
+# data_root='data/data.gov.md/'
+
+# ckan_instance = "https://data.humdata.org/"
+# data_root='data/data.humdata.org/'
+
+# ckan_instance = "https://catalog.data.gov/"
+# data_root='data/catalog.data.gov/'
+
+ckan_instance = "https://data.gov.sg"
+data_root='data/data.gov.sg/'
+
+# ckan_instance = "https://africaopendata.org/"
+# data_root='data/africaopendata.org/'
+
+# ckan_instance = "https://katalog.data.go.id/"
+# data_root='data/katalog.data.go.id/'
 
 # f = open('data/data.gov.ro-package_list-sample.json')
 f = open(data_root + 'package-list.json')
@@ -36,7 +54,7 @@ columns = [
 
 data = json.load(f)
 
-batch_size = 50
+
 current_batch = []
 clean_json = []
 row_count = 0
