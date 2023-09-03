@@ -1,3 +1,12 @@
+""" 
+## Roadmap
+
+- [ ] parametrize instance, dataFolder - prepare for gh actions
+- [ ] save csv
+
+ """
+
+
 import json, requests, csv
 import pandas as pd
 from random import randint
@@ -6,8 +15,12 @@ import sys, os
 from tqdm import tqdm
 
 ckan_instance = 'https://data.gov.ro'
+data_root = 'data/'
+# ckan_instance = 'https://data.gov.md/ckan'
+# data_root = 'data/data.gov.md/'
+
 # f = open('data/data.gov.ro-package_list-sample.json')
-f = open('data/package-list.json')
+f = open(data_root + 'package-list.json')
 
 columns = [
      "id",
@@ -38,19 +51,25 @@ for dataset_id in data:
     for column in columns:
         if column in dataset_info:
             filtered_row[column] = dataset_info[column]
-    if 'organization' in dataset_info:
-        filtered_row['org_name'] = dataset_info['organization']['name']
-        filtered_row['org_title'] = dataset_info['organization']['title']
+    if 'organization' in dataset_info and dataset_info['organization']:
+        filtered_row['org'] = str(dataset_info['organization'])
+        if 'name' in dataset_info['organization'] and len(dataset_info['organization']['name']) :
+            filtered_row['org_name'] = dataset_info['organization']['name']
+        if 'title' in dataset_info['organization'] and  len(dataset_info['organization']['title']):
+            filtered_row['org_title'] = dataset_info['organization']['title']
+        
     current_batch.append(filtered_row)
     row_count += 1
 
     # Check if the current batch is complete or if all rows have been processed
-    if len(current_batch) == batch_size or row_count == len(data['result']):
+    
+    # if len(current_batch) == batch_size or row_count == len(data['result']):
+    if len(current_batch) == batch_size or row_count == len(data):
         clean_json.extend(current_batch)
 
         # Write the data to a CSV file
-        with open('data/package-stats.csv', 'a', newline='') as csvfile:
-            fieldnames = columns + ['org_name', 'org_title']
+        with open(data_root + 'package-stats.csv', 'a', newline='') as csvfile:
+            fieldnames = columns + ['org','org_name', 'org_title']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             # If it's the first batch, write the header row
