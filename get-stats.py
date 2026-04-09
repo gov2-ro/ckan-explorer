@@ -23,14 +23,14 @@ batch_size = 50
 # ckan_instance = "https://data.gov.md/ckan"
 # data_root='data/data.gov.md/'
 
-# ckan_instance = "https://data.humdata.org/"
-# data_root='data/data.humdata.org/'
+ckan_instance = "https://data.humdata.org/"
+data_root='data/data.humdata.org/'
 
 # ckan_instance = "https://catalog.data.gov/"
 # data_root='data/catalog.data.gov/'
 
-ckan_instance = "https://data.gov.sg"
-data_root='data/data.gov.sg/'
+# ckan_instance = "https://data.gov.sg"
+# data_root='data/data.gov.sg/'
 
 # ckan_instance = "https://africaopendata.org/"
 # data_root='data/africaopendata.org/'

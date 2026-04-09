@@ -21,6 +21,9 @@ data_root='data/'
 # ckan_instance = "https://katalog.data.go.id/"
 # data_root='data/katalog.data.go.id/'
 
+# ckan_instance = "https://datastore.brussels/"
+# data_root='data/datastore.brussels/'
+
 # Step 1: Get a list of dataset names
 response = requests.get(f"{ckan_instance}/api/3/action/package_list")
 datasets = response.json()["result"]
