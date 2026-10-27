@@ -7,7 +7,7 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [x] Extract the 2023 notes into `docs/ANALYSIS.md` and `docs/reference/ckan-instances.csv`.
 - [x] Set priorities from `docs/ANALYSIS.md` (sections 8 and 9).
 - [x] **P1 — Org stats.** Spec: `docs/specs/P1-org-stats.md`. Brief for Sonnet: `docs/briefs/P1-org-stats.md`. Done 2026-10-27: `org-stats.py`, tests in `tests/`. For every working portal, read `datasets.jsonl` and write per-org and per-dataset tables: datasets, resources, uploads per month (resource `created`), first and last activity.
-- [~] **P2 — Report.** Spec: `docs/specs/P2-report.md`; brief ready. Static HTML in the repo: top-orgs heatmap (uploads per period; last 5 years, last year; top 50 = union of top by uploads and by datasets) and most active datasets (longest timespan, most uploads).
+- [x] **P2 — Report.** `report.py` writes `site/`. Spec: `docs/specs/P2-report.md`. Static HTML in the repo: top-orgs heatmap (uploads per period; last 5 years, last year; top 50 = union of top by uploads and by datasets) and most active datasets (longest timespan, most uploads).
 - [x] **P3a — Snapshots and diff, local part.** `snapshot.py`, `diff-snapshots.py`. Spec: `docs/specs/P3-snapshots.md`.
 - [ ] **P3b — Snapshot storage, schedule, retention.** Waits for the user. Size: about 17 MB of gzip per date for the 3 portals (HDX 12.4 MB). Scheduled, dated fetches; list new, changed and deleted datasets.
 - [~] **P4 — Portal registry.** Spec: `docs/specs/P4-portal-registry.md`; brief ready. Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
@@ -24,6 +24,13 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [x] `org-stats.py`: the `orgs` count in `summary.json` excludes `_none`; Confirmed 2026-10-27 and written into the spec.
 
 - [ ] P3 later: compare resource `created` and `size` in the diff; stream the sort if a portal needs too much memory (HDX: 260 MB now).
+
+- [ ] P2: check the pages in a real browser (360 px width, dark theme, tooltips, vertical month headers). Not done yet: the browser extension was not connected on 2026-10-27.
+- [ ] P2: run the dataviz palette validator on the two heatmap ramps.
+- [ ] P1/P2: add distinct datasets per org per year to P1 output, so the All-years tooltip is exact (now a sum of monthly counts).
+- [ ] P2: accessibility — a table view or a texture for the heatmap.
+- [ ] P2: test the portal base URL map (for example `data.gov.md` → `/ckan`).
+- [ ] `.gitignore` has `/site` (from the Python template, for mkdocs). `site/` is committed with `git add -f`. Remove that line when the ingest session's `.gitignore` edits are committed.
 
 ## Verified limits
 

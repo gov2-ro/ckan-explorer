@@ -1,0 +1,5 @@
+id,name,title,org_name,resources,uploads,updates,first_upload,last_upload,timespan_days,active_months,metadata_created,metadata_modified
+d1,ds-one,"Title <b>one</b> & more",alpha,3,3,1,2020-01-05,2026-10-01,2461,3,2020-01-05T00:00:00,2026-10-01T00:00:00
+d2,ds-two,Two,alpha,2,2,0,2026-02-01,2026-02-01,0,1,2026-02-01T00:00:00,2026-02-01T00:00:00
+d3,ds-three,Three,beta,3,3,0,2019-03-01,2026-09-10,2750,3,2019-03-01T00:00:00,2026-09-10T00:00:00
+d4,ds-four,Four,_none,1,1,0,2018-05-01,2018-05-01,0,1,2018-05-01T00:00:00,2018-05-01T00:00:00

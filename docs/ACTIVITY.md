@@ -1,5 +1,20 @@
 # Activity
 
+## 2026-10-27 — P2 report built (Sonnet) and reviewed (Opus)
+
+**Done**
+- Sonnet built `report.py` with 7 tests and the fixture `tests/fixtures/stats-mini/`. It writes `site/index.html` and one page per portal.
+- Measured: 0.28 s for 3 portals. Page sizes: data.gov.ro 68,419 bytes, data.humdata.org 72,622, africaopendata.org 40,821, index 4,217. Two runs give the same bytes. `node --check` passes on the inline scripts. A DOM stub in node clicked every view, sort and table button without errors. 12-month view rows: 56 (ro), 63 (HDX), 8 (africa).
+- Opus review: all tests pass; no `innerHTML` in `report.py`; no external script or stylesheet; light and dark ramps are monotonic; a rerun gives the same files.
+
+**Hard**
+- Not checked in a real browser (the extension was not connected). Layout at 360 px, dark theme and tooltips are not verified.
+- `org-monthly.csv` has no distinct dataset count per year. The All-years tooltip shows a sum of monthly counts and says so.
+
+**Decided**
+- Commit `site/` (the spec says the pages are files in the repo), with `git add -f`, because the template `.gitignore` ignores `/site`.
+- Accept the builder's choices: per-view log scale with 5 steps; the "datasets" column and the top-50-by-datasets rule use all-time counts; datasets with 0 uploads are not in the tables.
+
 ## 2026-10-27 — P3 local part built (Sonnet) and reviewed (Opus)
 
 **Done**
