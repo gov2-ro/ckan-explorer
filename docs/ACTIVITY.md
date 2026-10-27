@@ -1,5 +1,18 @@
 # Activity
 
+## 2026-10-27 — P1 review (Opus)
+
+**Done**
+- Reviewed the P1 build (`ba6c5ff`, v0.4.0) against the spec. Ran the 8 tests: OK. Checked `summary.json` for data.gov.ro: all 4 invariants true. Checked the window code (as-of month and the 11 or 59 months before it) and the update rule (strict, more than 24 hours).
+- Accepted P1.
+
+**Hard**
+- The spec's update counts (2033, 92995, 1019) came from Opus's measurement script, which used `timedelta.days > 1` (2 or more full days). That does not match the spec text. Sonnet followed the text and found the difference.
+
+**Decided**
+- Keep the spec text (more than 24 hours). Corrected the spec table to 2045, 94355 and 1038. Cost of the alternative (2 full days): a rule that nobody chose on purpose.
+- `orgs` in `summary.json` excludes `_none`; written into the spec.
+
 ## 2026-10-27 — P1 org stats built
 
 **Done**

@@ -58,7 +58,7 @@ The script writes to `data/<host>/stats/` and overwrites the files each run. CSV
 ### `summary.json`
 
 - `portal` (the directory name), `source` (path, size in bytes, modification time), `as_of`.
-- Counts: `datasets`, `duplicate_ids`, `resources`, `orgs`, `no_org_datasets`.
+- Counts: `datasets`, `duplicate_ids`, `resources`, `orgs` (without `_none`), `no_org_datasets`, `uploads`, `updates`.
 - Date checks: `resources_no_created`, `resources_invalid_created`, `resources_no_last_modified`, `last_modified_after_created_1d`, `last_modified_before_created_1d`, `created_min`, `created_max`.
 - `invariants`: the result of each check below.
 
@@ -86,9 +86,11 @@ python org-stats.py data/data.gov.ro --as-of 2026-10-01
 
 | Portal | Resources | `last_modified` > `created` + 1 day | `last_modified` < `created` − 1 day | No organization |
 |---|---:|---:|---:|---:|
-| data.gov.ro | 39804 | 2033 | 0 | 0 of 5260 |
-| data.humdata.org | 191615 | 92995 | 58156 | 0 of 28832 |
-| africaopendata.org | 19573 | 1019 | 0 | 1974 of 6982 |
+| data.gov.ro | 39804 | 2045 | 0 | 0 of 5260 |
+| data.humdata.org | 191615 | 94355 | 58156 | 0 of 28832 |
+| africaopendata.org | 19573 | 1038 | 0 | 1974 of 6982 |
+
+"More than 1 day" means more than 24 hours (strict). Correction 2026-10-27: the first version of this table counted 2 or more full days, which does not match this definition.
 
 On data.humdata.org, 30% of resources have `last_modified` before `created`. Thus HDX probably resets `created` when a file is replaced, and `created` is not the first upload. P1 does not correct this. P2 must show a note for HDX. A later item can study HDX dates.
 

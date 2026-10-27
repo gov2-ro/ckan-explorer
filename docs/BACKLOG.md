@@ -19,8 +19,8 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 
 - [ ] `datasets.jsonl` is too large for GitHub: data.gov.ro 104 MB, data.humdata.org 965 MB (limit 100 MB per file). The ingest work must gitignore or compress it before anyone commits `data/`.
 - [ ] data.humdata.org resource dates: 58156 of 191615 resources have `last_modified` before `created`. HDX probably resets `created` when a file is replaced. Study before HDX numbers are compared with other portals.
-- [ ] P1 spec ambiguity: "more than 1 day" for an update. The spec's measured counts (data.gov.ro 2033, africaopendata.org 1019) match a rule of 2 or more full days (`timedelta.days > 1`). The script uses strict "more than 24 hours" and gets 2045 and 1038. Decide which rule is meant, then change the spec or the script.
-- [ ] `org-stats.py`: the `orgs` count in `summary.json` excludes `_none`; the spec does not say. Confirm.
+- [x] P1 spec ambiguity: "more than 1 day" for an update. The spec's measured counts (data.gov.ro 2033, africaopendata.org 1019) match a rule of 2 or more full days (`timedelta.days > 1`). The script uses strict "more than 24 hours" and gets 2045 and 1038. Resolved 2026-10-27: the script is right (strict, more than 24 hours); the spec table had a measurement error and is corrected.
+- [x] `org-stats.py`: the `orgs` count in `summary.json` excludes `_none`; Confirmed 2026-10-27 and written into the spec.
 
 ## Verified limits
 
