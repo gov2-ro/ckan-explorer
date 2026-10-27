@@ -7,9 +7,9 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [x] Extract the 2023 notes into `docs/ANALYSIS.md` and `docs/reference/ckan-instances.csv`.
 - [x] Set priorities from `docs/ANALYSIS.md` (sections 8 and 9).
 - [x] **P1 — Org stats.** Spec: `docs/specs/P1-org-stats.md`. Brief for Sonnet: `docs/briefs/P1-org-stats.md`. Done 2026-10-27: `org-stats.py`, tests in `tests/`. For every working portal, read `datasets.jsonl` and write per-org and per-dataset tables: datasets, resources, uploads per month (resource `created`), first and last activity.
-- [ ] **P2 — Report.** Static HTML in the repo: top-orgs heatmap (uploads per period; last 5 years, last year; top 50 = union of top by uploads and by datasets) and most active datasets (longest timespan, most uploads).
-- [ ] **P3 — Snapshots and diff.** Scheduled, dated fetches; list new, changed and deleted datasets.
-- [ ] **P4 — Portal registry.** Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
+- [~] **P2 — Report.** Spec: `docs/specs/P2-report.md`; brief ready. Static HTML in the repo: top-orgs heatmap (uploads per period; last 5 years, last year; top 50 = union of top by uploads and by datasets) and most active datasets (longest timespan, most uploads).
+- [~] **P3 — Snapshots and diff.** Spec (local part): `docs/specs/P3-snapshots.md`; brief ready. Storage, schedule and retention wait for the user. Scheduled, dated fetches; list new, changed and deleted datasets.
+- [~] **P4 — Portal registry.** Spec: `docs/specs/P4-portal-registry.md`; brief ready. Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
 - [ ] katalog.data.go.id: the host does not resolve (DNS error, 2026-10-27). Check again before P1 runs.
 
 ## Bugs and defects

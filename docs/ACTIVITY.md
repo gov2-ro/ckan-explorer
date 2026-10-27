@@ -1,5 +1,17 @@
 # Activity
 
+## 2026-10-27 — P2, P3, P4 specs and briefs
+
+**Done**
+- Wrote specs and briefs for P2 (static report), P3 (snapshots and diff, local part) and P4 (portal probe).
+
+**Decided**
+- Build P2, P3 and P4 in parallel with three Sonnet agents. The agents do not commit or edit the process files; Opus reviews and commits. Rationale: the three parts use different files, and one committer avoids git conflicts and tag races.
+- P2 pages are self-contained (inline CSS/JS, embedded JSON). Rationale: they work from `file://` and on GitHub Pages without a build. Cost: data is duplicated in each page (under 1 MB each).
+- P2 heatmap uses a log color scale. Rationale: uploads per org have a heavy tail (data.gov.ro: ANPM 16752, median org much lower).
+- P3 snapshots are slim (selected fields, gzip). Rationale: the full HDX file is 965 MB. Cost: a diff cannot see changes in fields outside the slim record.
+- P3 storage, schedule and retention are left to the user.
+
 ## 2026-10-27 — P1 review (Opus)
 
 **Done**
