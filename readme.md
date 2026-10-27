@@ -5,6 +5,7 @@ see [CKAN data analyzer](https://docs.google.com/document/d/1Emrco1IWSVUrHCGGPlF
 ## Scripts
 
 - `fetch-datasets.py <url> [--out DIR]` - preferred: pages through `package_search`, writes `package-stats.csv` (with header) and `datasets.jsonl` to `data/<hostname>/`
+- `org-stats.py <data/host>... | --all [--as-of YYYY-MM-DD]` - reads `datasets.jsonl`, writes `orgs.csv`, `org-monthly.csv`, `datasets.csv` and `summary.json` to `data/<host>/stats/`
 - `list-packages.py` (legacy) - reads `{ckan_instance}/api/3/action/package_list` , saves to `data/package-list.json`
 - `get-stats.py` (legacy) - loops package-list.json and generates `package-stats.csv`
 
