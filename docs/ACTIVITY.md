@@ -1,5 +1,16 @@
 # Activity
 
+## 2026-10-28 — README rewrite with screenshots
+
+**Done**
+- Rewrote `readme.md`: quick start, script table, metric, known limits. Added three screenshots in `docs/screenshots/` (index, portal page, 390 px width), taken from `site/` with headless Chrome.
+
+**Hard**
+- Headless Chrome hung with `--virtual-time-budget`; it worked without that flag. The mobile image is a first real-browser look at 390 px; layout was not reviewed in detail.
+
+**Decided**
+- Screenshots use portal.opendata.dk (small, English). Cost: they must be retaken when the page layout changes.
+
 ## 2026-10-27 — Size and file-type stats; tile clean-up (user requests)
 
 **Done**
