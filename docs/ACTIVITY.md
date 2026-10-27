@@ -1,5 +1,42 @@
 # Activity
 
+## 2026-10-27 — P1 org stats built
+
+**Done**
+- Wrote `org-stats.py` (standard library only, line-by-line read) and `tests/test_org_stats.py` with `tests/fixtures/mini.jsonl`. Result of `python3 -m unittest discover tests`: `Ran 8 tests ... OK`.
+- Ran `python3 org-stats.py --all`. All 4 invariants hold on all 3 portals. Output is in `data/<host>/stats/` (not committed).
+
+**Measured** (one run per portal; time and peak memory from `/usr/bin/time -l`)
+
+| Portal | Datasets | Resources | Uploads | Updates | Orgs | No-org datasets | As-of | Time | Peak memory |
+|---|---:|---:|---:|---:|---:|---:|---|---:|---:|
+| data.gov.ro | 5260 | 39804 | 39804 | 2045 | 131 | 0 | 2026-10-27 | 0.9 s | 57 MB |
+| data.humdata.org | 28832 | 191615 | 191615 | 94355 | 376 | 0 | 2026-10-27 | 6.3 s | 153 MB |
+| africaopendata.org | 6982 | 19573 | 19573 | 1038 | 182 | 1974 | 2026-10-26 | 0.4 s | 35 MB |
+
+Top 10 organizations by `uploads` (all time):
+- data.gov.ro: agentia-nationala-pentru-protectia-mediului 16752; mdrap 6822; mfp 2889; mj 1930; ms 1479; casa-nationala-de-asigurari-de-sanatate 1432; inspectoratul-general-pentru-situatii-de-urgenta 628; agentia-nationala-pentru-ocuparea-fortei-de-munca 489; onrc 480; ancpi 473.
+- data.humdata.org: worldpop 72338; hot 22315; fewsnet 19540; world-health-organization 7534; dhs 6576; world-bank-group 4790; copernicus 4764; heidelberg-institute-for-geoinformation-technology 4131; unhcr 3943; meta 3228.
+- africaopendata.org: vulekamali 5589; _none 3969; displacement-tracking-matrix 1018; grid-3-nigeria 1000; tanzania-national-bureau-of-statistics 780; the-charter-project 773; sensors-africa 647; digital-earth-africa 511; ilri 478; code-for-africa 475.
+
+Top 10 organizations by `uploads_12m`:
+- data.gov.ro: mdrap 926; mfp 478; casa-nationala-de-asigurari-de-sanatate 287; mj 120; onrc 99; ms 64; institutul-national-de-statistica 54; cancelaria-prim-ministrului 53; agentia-nationala-pentru-ocuparea-fortei-de-munca 52; inspectoratul-general-pentru-situatii-de-urgenta 39.
+- data.humdata.org: hot 22112; fewsnet 13254; heidelberg-institute-for-geoinformation-technology 3657; climate-trace 1617; unep-wcmc 1504; copernicus 1181; healthsites 930; automated-disaster-analysis-mapping 768; fao 643; world-health-organization 588.
+- africaopendata.org: sensors-africa 142; open-restitution-africa 31; code-for-africa 24; tanzania-national-bureau-of-statistics 18; displacement-tracking-matrix 7; ansd 2; maasaimarauniversity 2; ministere-de-la-sante-publique-republique-democratique-du-congo 2; _none 0.
+
+**Hard**
+- The update counts differ from the spec table (data.gov.ro 2045 vs 2033; africaopendata.org 1038 vs 1019). Resource counts, the "earlier" counts (58156 on HDX, 0 elsewhere) and no-org counts match. Both spec numbers match a rule of 2 or more full days (`timedelta.days > 1`); the spec text says "more than 1 day", and the script follows the text. Logged in BACKLOG.md. Not checked: the HDX "later" count under the 2-day rule.
+- On data.humdata.org 58156 resources have `last_modified` before `created`; P2 must show the note.
+
+**Assumed**
+- `summary.json` `orgs` excludes `_none` (spec does not say). `summary.json` also has extra keys `uploads` and `updates`.
+- Valid date = matches `YYYY-MM-DD[T ]HH:MM:SS` in the first 19 characters and parses; date-only values would count as invalid (none occur in the data).
+- A resource with an empty or missing `created` counts as "no created"; any other bad value counts as "invalid".
+- An update needs both dates valid. Updates in `org-monthly.csv` can fall in months with no uploads (`datasets` is then 0).
+- The as-of date is the latest `metadata_modified` over all lines, including duplicates. A duplicate `id` line is skipped entirely (its resources are not counted).
+- Windows are by calendar month: 12m = as-of month and the 11 months before it.
+- `timespan_days` uses calendar-date difference between first and last upload.
+
 ## 2026-10-27 — P1 spec and brief
 
 **Done**
