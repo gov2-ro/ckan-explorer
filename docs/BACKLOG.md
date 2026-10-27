@@ -8,7 +8,8 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [x] Set priorities from `docs/ANALYSIS.md` (sections 8 and 9).
 - [x] **P1 — Org stats.** Spec: `docs/specs/P1-org-stats.md`. Brief for Sonnet: `docs/briefs/P1-org-stats.md`. Done 2026-10-27: `org-stats.py`, tests in `tests/`. For every working portal, read `datasets.jsonl` and write per-org and per-dataset tables: datasets, resources, uploads per month (resource `created`), first and last activity.
 - [~] **P2 — Report.** Spec: `docs/specs/P2-report.md`; brief ready. Static HTML in the repo: top-orgs heatmap (uploads per period; last 5 years, last year; top 50 = union of top by uploads and by datasets) and most active datasets (longest timespan, most uploads).
-- [~] **P3 — Snapshots and diff.** Spec (local part): `docs/specs/P3-snapshots.md`; brief ready. Storage, schedule and retention wait for the user. Scheduled, dated fetches; list new, changed and deleted datasets.
+- [x] **P3a — Snapshots and diff, local part.** `snapshot.py`, `diff-snapshots.py`. Spec: `docs/specs/P3-snapshots.md`.
+- [ ] **P3b — Snapshot storage, schedule, retention.** Waits for the user. Size: about 17 MB of gzip per date for the 3 portals (HDX 12.4 MB). Scheduled, dated fetches; list new, changed and deleted datasets.
 - [~] **P4 — Portal registry.** Spec: `docs/specs/P4-portal-registry.md`; brief ready. Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
 - [ ] katalog.data.go.id: the host does not resolve (DNS error, 2026-10-27). Check again before P1 runs.
 
@@ -22,7 +23,11 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [x] P1 spec ambiguity: "more than 1 day" for an update. The spec's measured counts (data.gov.ro 2033, africaopendata.org 1019) match a rule of 2 or more full days (`timedelta.days > 1`). The script uses strict "more than 24 hours" and gets 2045 and 1038. Resolved 2026-10-27: the script is right (strict, more than 24 hours); the spec table had a measurement error and is corrected.
 - [x] `org-stats.py`: the `orgs` count in `summary.json` excludes `_none`; Confirmed 2026-10-27 and written into the spec.
 
+- [ ] P3 later: compare resource `created` and `size` in the diff; stream the sort if a portal needs too much memory (HDX: 260 MB now).
+
 ## Verified limits
+
+- [-] Add `private` and `state` to the slim snapshot record. Reason: `package_search` returns only public, active datasets, so these fields do not change between snapshots. A deletion shows as a missing dataset.
 
 - [-] Backfill history from the legacy `package-stats.csv` files. Reason: duplicate rows, empty fields, no resource dates (ANALYSIS.md section 2). Decided 2026-10-27.
 - [-] "One resource = one version" as the main metric. Reason: spike 2026-10-27; most multi-resource datasets got all files on the same day (ANALYSIS.md section 2).

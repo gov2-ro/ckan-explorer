@@ -1,5 +1,20 @@
 # Activity
 
+## 2026-10-27 — P3 local part built (Sonnet) and reviewed (Opus)
+
+**Done**
+- Sonnet built `snapshot.py` and `diff-snapshots.py`, with 6 tests.
+- Measured snapshot size, time and peak memory: data.gov.ro 2,782,561 bytes, 0.9 s, 76 MB; africaopendata.org 1,729,274 bytes, 0.5 s, 42 MB; data.humdata.org 12,412,908 bytes, 6.4 s, 260 MB.
+- Real-data diff test on a changed copy of data.gov.ro (3 lines deleted, 1 title and 1 resource format changed): `added=0 deleted=3 changed=2`.
+- Opus review: tests pass; a self-diff of the real snapshot gives 0/0/0; a second run does not overwrite.
+
+**Hard**
+- The snapshot sorts records in memory. HDX needs 260 MB; a much larger portal can need more.
+
+**Decided**
+- In the slim record, `org_name` is null for a dataset with no organization (P1 uses `_none`). Accepted: snapshots keep the source value; the `_none` group is a stats rule.
+- Snapshots stay out of git until the user decides storage. `/data/` is now gitignored (ingest work).
+
 ## 2026-10-27 — P2, P3, P4 specs and briefs
 
 **Done**

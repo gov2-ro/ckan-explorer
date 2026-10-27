@@ -1,5 +1,6 @@
 # Releases
 
+- v0.6.0 — 2026-10-27 — P3 local part: `snapshot.py` and `diff-snapshots.py`.
 - v0.5.0 — 2026-10-27 — Specs and briefs for P2 (report), P3 (snapshots, local part), P4 (portal probe).
 - v0.4.1 — 2026-10-27 — P1 spec correction: update counts and the `orgs` summary count.
 - v0.4.0 — 2026-10-27 — P1 `org-stats.py`: per-organization and per-dataset publishing stats from `datasets.jsonl`, with unit tests.
