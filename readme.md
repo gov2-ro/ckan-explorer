@@ -4,8 +4,9 @@ see [CKAN data analyzer](https://docs.google.com/document/d/1Emrco1IWSVUrHCGGPlF
 
 ## Scripts
 
-- `list-packages.py` - reads `{ckan_instance}/api/3/action/package_list` , saves to `data/package-list.json`
-- `get-stats.py` - loops package-list.json and generates `package-stats.csv`
+- `fetch-datasets.py <url> [--out DIR]` - preferred: pages through `package_search`, writes `package-stats.csv` (with header) and `datasets.jsonl` to `data/<hostname>/`
+- `list-packages.py` (legacy) - reads `{ckan_instance}/api/3/action/package_list` , saves to `data/package-list.json`
+- `get-stats.py` (legacy) - loops package-list.json and generates `package-stats.csv`
 
 ## Roadmap 
 
