@@ -1,5 +1,21 @@
 # Activity
 
+## 2026-10-27 — Priorities set
+
+**Done**
+- Spike: fetched the 1000 most recently modified datasets per portal with `package_search` and measured resource `created` dates. data.gov.ro: 454 multi-resource datasets, 167 with dates spread over 30 days. data.humdata.org: 283 and 19. africaopendata.org: 542 and 38. Median spread 0 days on all three. katalog.data.go.id: DNS error.
+- Set priorities P1–P4 in `docs/BACKLOG.md`; recorded decisions in ANALYSIS.md section 9.
+
+**Hard**
+- The sample is biased to recently modified datasets. The numbers are a signal, not a census.
+- The spike measured `created` only. If a replaced file keeps its old `created` date, uploads are undercounted (open question 7).
+
+**Decided**
+- Main metric: uploads per period, from resource `created` dates. Rationale: the spike shows that the resource count overstates activity. Cost of the alternative: org rankings driven by bulk uploads on one day.
+- Order: P1 org stats, P2 report, P3 snapshots, P4 registry. Rationale: value from current data first. Cost: history before P3 starts is lost for deleted datasets.
+- Output: static HTML in the repo. Cost of the alternative (hosted page or notebook): not versioned with the code, or not readable without tooling.
+- No backfill from legacy CSVs. The 2023 xlsx and file downloads stay open, outside P1–P4.
+
 ## 2026-10-27 — Analysis of the 2023 notes
 
 **Done**

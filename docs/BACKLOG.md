@@ -5,7 +5,12 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 ## Roadmap
 
 - [x] Extract the 2023 notes into `docs/ANALYSIS.md` and `docs/reference/ckan-instances.csv`.
-- [ ] Set priorities from `docs/ANALYSIS.md` (sections 8 and 9). Then add the chosen goals here.
+- [x] Set priorities from `docs/ANALYSIS.md` (sections 8 and 9).
+- [ ] **P1 — Org stats.** For every working portal, read `datasets.jsonl` and write per-org and per-dataset tables: datasets, resources, uploads per month (resource `created`), first and last activity. Needs a spec (Opus) and a brief (Sonnet). Depends on `datasets.jsonl` from the ingest session.
+- [ ] **P2 — Report.** Static HTML in the repo: top-orgs heatmap (uploads per period; last 5 years, last year; top 50 = union of top by uploads and by datasets) and most active datasets (longest timespan, most uploads).
+- [ ] **P3 — Snapshots and diff.** Scheduled, dated fetches; list new, changed and deleted datasets.
+- [ ] **P4 — Portal registry.** Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
+- [ ] katalog.data.go.id: the host does not resolve (DNS error, 2026-10-27). Check again before P1 runs.
 
 ## Bugs and defects
 
@@ -13,3 +18,6 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [ ] Legacy data.humdata.org CSV: 3738 rows have empty `num_resources` and `org_name`. Cause not checked.
 
 ## Verified limits
+
+- [-] Backfill history from the legacy `package-stats.csv` files. Reason: duplicate rows, empty fields, no resource dates (ANALYSIS.md section 2). Decided 2026-10-27.
+- [-] "One resource = one version" as the main metric. Reason: spike 2026-10-27; most multi-resource datasets got all files on the same day (ANALYSIS.md section 2).
