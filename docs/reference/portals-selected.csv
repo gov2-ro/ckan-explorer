@@ -1,0 +1,13 @@
+url,host,datasets_2026_10_27,ckan_version,group,note
+https://data.gov.ro,data.gov.ro,5260,2.8.3,current,
+https://data.humdata.org,data.humdata.org,28845,2.11.4,current,Upload dates unreliable; keep with note (ANALYSIS.md section 9)
+https://africaopendata.org,africaopendata.org,6982,,current,28% of datasets have no organization
+https://data.primariatm.ro,data.primariatm.ro,36,2.10.11,ro,Timisoara city hall
+https://ckan.govdata.de,ckan.govdata.de,145214,2.10.11,eu-national,Large; same portal as govdata.de/ckan
+https://data.gov.gr,data.gov.gr,23004,2.11.3,eu-national,
+https://data.gov.ie,data.gov.ie,22904,2.9.16,eu-national,
+https://data.overheid.nl/data,data.overheid.nl,20760,2.8.12,eu-national,API base has /data
+https://podatki.gov.si,podatki.gov.si,9326,2.2b,eu-national,Old CKAN version
+https://avoindata.fi/data,avoindata.fi,2611,2.11.6,eu-national,API base has /data
+https://data.gov.lv,data.gov.lv,1574,2.11.3,eu-national,
+https://portal.opendata.dk,portal.opendata.dk,631,2.11.6,eu-national,Danish municipalities and regions

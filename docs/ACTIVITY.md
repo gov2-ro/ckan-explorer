@@ -1,5 +1,19 @@
 # Activity
 
+## 2026-10-27 — User decisions after P1–P4
+
+**Done**
+- Recorded the user's decisions in ANALYSIS.md section 9.
+- Wrote `docs/reference/portals-selected.csv` from the P4 probe, and the P3b spec and brief.
+
+**Decided**
+- Snapshots (user): weekly, as GitHub release assets. Cost of the alternatives: commits in git grow the history forever (about 200 MB a year for monthly); local cron has no backup and no sharing.
+- Portals (user): Romania + EU national portals. Opus chose the list from the probe: data.primariatm.ro, ckan.govdata.de, data.gov.gr, data.gov.ie, data.overheid.nl, podatki.gov.si, avoindata.fi, data.gov.lv, portal.opendata.dk. Left out: opendata.hu (72 datasets, CKAN 2.0, not the official portal), regional and city portals, and EU national portals that are not CKAN or did not answer (data.gov.cz, data.gov.sk, data.gov.hr, data.gv.at, danepubliczne.gov.pl, data.europa.eu, datasets.catalogue.data.gov.dk).
+- katalog.data.go.id is not in the list: it gave a DNS error on 2026-10-27 and was not in the probe result as `ok`.
+- HDX (user): keep it with the note.
+- Publish (user): push the commits and tags; no GitHub Pages yet.
+- P3b is blocked until `fetch-datasets.py` is committed. A weekly job that fails each week is worse than no job.
+
 ## 2026-10-27 — P4 portal probe built (Sonnet) and reviewed (Opus)
 
 **Done**

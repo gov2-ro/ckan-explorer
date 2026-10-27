@@ -1,5 +1,6 @@
 # Releases
 
+- v0.9.0 — 2026-10-27 — User decisions: weekly release-asset snapshots (P3b spec), selected portals list.
 - v0.8.0 — 2026-10-27 — P4 portal probe: `portal-probe.py` and `docs/reference/portal-probe.csv` (170 working CKAN portals of 526).
 - v0.7.0 — 2026-10-27 — P2 static report: `report.py` and `site/`.
 - v0.6.0 — 2026-10-27 — P3 local part: `snapshot.py` and `diff-snapshots.py`.

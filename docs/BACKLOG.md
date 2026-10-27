@@ -9,9 +9,11 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [x] **P1 — Org stats.** Spec: `docs/specs/P1-org-stats.md`. Brief for Sonnet: `docs/briefs/P1-org-stats.md`. Done 2026-10-27: `org-stats.py`, tests in `tests/`. For every working portal, read `datasets.jsonl` and write per-org and per-dataset tables: datasets, resources, uploads per month (resource `created`), first and last activity.
 - [x] **P2 — Report.** `report.py` writes `site/`. Spec: `docs/specs/P2-report.md`. Static HTML in the repo: top-orgs heatmap (uploads per period; last 5 years, last year; top 50 = union of top by uploads and by datasets) and most active datasets (longest timespan, most uploads).
 - [x] **P3a — Snapshots and diff, local part.** `snapshot.py`, `diff-snapshots.py`. Spec: `docs/specs/P3-snapshots.md`.
-- [ ] **P3b — Snapshot storage, schedule, retention.** Waits for the user. Size: about 17 MB of gzip per date for the 3 portals (HDX 12.4 MB). Scheduled, dated fetches; list new, changed and deleted datasets.
+- [ ] **P3b — Weekly snapshots on GitHub Actions, release assets.** Spec: `docs/specs/P3b-snapshot-schedule.md`; brief ready. **Blocked:** `fetch-datasets.py` must be committed first (ingest work).
+- [ ] P3c: retention of snapshot releases (about 900 MB a year expected). Scheduled, dated fetches; list new, changed and deleted datasets.
 - [x] **P4 — Portal registry.** `portal-probe.py` → `docs/reference/portal-probe.csv`. Spec: `docs/specs/P4-portal-registry.md`.
-- [ ] **P5 — Choose portals to add.** Waits for the user's rule. Input: 170 `ok` portals in `portal-probe.csv`. Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
+- [x] **P5 — Choose portals to add.** Rule (user): Romania + EU national portals. List: `docs/reference/portals-selected.csv` (12 portals: 3 current, 1 RO, 8 EU national).
+- [ ] **P6 — Fetch the new portals** (ingest work) and run P1 and P2 on them. ckan.govdata.de has 145k datasets: check time and disk first. Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
 - [ ] katalog.data.go.id: the host does not resolve (DNS error, 2026-10-27). Check again before P1 runs.
 
 ## Bugs and defects
