@@ -1,0 +1,2 @@
+{"resource_id":"r2","package_id":"b2","status":"ok","fields":[{"id":"_id","type":"int"},{"id":"col","type":"text"}],"total":7}
+{"resource_id":"r1","package_id":"b1","status":"error","error":"boom"}

@@ -8,7 +8,7 @@ For each portal, make one static HTML page that shows which organizations publis
 
 ## Input
 
-For each `data/<host>/stats/` directory that has `summary.json`: `orgs.csv`, `org-monthly.csv`, `datasets.csv`, `summary.json` (P1 output). The script only reads these files. It does not read `datasets.jsonl`.
+For each `data/<host>/stats/` directory that has `summary.json`: `orgs.csv`, `org-monthly.csv`, `datasets.csv`, `summary.json` (P1 output). The report sections read these files. The "Datasets" section (P7, `docs/specs/P7-dataset-browser.md`) reads `datasets.jsonl` and `fields.jsonl` when they exist (amended 2026-10-27).
 
 ## Output
 
@@ -16,10 +16,11 @@ The script writes to `site/` and overwrites the files each run:
 
 - `site/index.html` — the portal index.
 - `site/<host>.html` — one page per portal.
+- `site/<host>-datasets.js` — data for the "Datasets" section (P7); only for portals that have `datasets.jsonl`.
 
 Rules for every page:
 
-- One self-contained file: inline CSS and inline JavaScript. No external scripts, fonts, or stylesheets. The page works from `file://`.
+- Inline CSS and inline JavaScript. No external scripts, fonts, or stylesheets. The only other file a page loads is its own `<host>-datasets.js`. The page works from `file://`.
 - The data that the page needs is embedded as JSON in a `<script type="application/json">` element. The script escapes `<` as `<` in that JSON.
 - Titles and names come from the portals and are untrusted. Escape them in HTML. In JavaScript, set text with `textContent`, never with `innerHTML` for data values.
 - Deterministic: the same input gives the same bytes. Do not write the clock time; show the as-of date from `summary.json`.

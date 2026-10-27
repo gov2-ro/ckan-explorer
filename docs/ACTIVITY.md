@@ -1,5 +1,35 @@
 # Activity
 
+## 2026-10-27 — Browser merged into the portal page; HDX data removed (user decisions)
+
+**Done**
+- Removed `data/data.humdata.org/` (970 MB: `datasets.jsonl` 965 MB, `package-stats.csv`, snapshot, stats) and `site/data.humdata.org.html`. `data/` is gitignored, so only a new `fetch-datasets.py` run brings it back.
+- Merged the dataset browser into `site/<host>.html` as a "Datasets" section. `browse.py` is now a module that `report.py` calls; the separate `*-datasets.html` pages are gone. `report.py` writes `site/<host>-datasets.js` for each portal that has `datasets.jsonl`.
+- Added `/site/*-datasets.js` to `.gitignore`. Amended specs P2 and P7.
+- 39 tests pass. Page scripts pass `node --check`. Portal pages: data.gov.ro 75 KB, africaopendata.org 48 KB; index 3.8 KB.
+
+**Decided**
+- One page per portal, not two (user). Cost: the portal page needs `datasets.jsonl`, which P2 did not read before; a portal with only stats has no "Datasets" section.
+- Keep data.gov.ro and africaopendata.org; add a few small sample portals (user, count not chosen).
+- The HDX note stays in `report.py` (`PORTAL_NOTES`) for a later return.
+
+## 2026-10-27 — P7 dataset browser and P8 spec (Sonnet)
+
+**Done**
+- Checked what `datasets.jsonl` already holds: the full package record, with all resources (format, size, created) and `datastore_active`. No resource has a schema or field list (data.gov.ro: 4,500 of 39,804 resources are `datastore_active`; africaopendata.org: 1,659 of 19,573).
+- Searched for prior art for a portal-wide field fetch. Found none; `ckanapi dump` gives package metadata only. Decision: write `fetch-fields.py` (P8).
+- Wrote specs `docs/specs/P7-dataset-browser.md` and `docs/specs/P8-fetch-fields.md`.
+- Built `browse.py` (P7) and `tests/test_browse.py` (10 tests; all 38 tests pass). `report.py` now links to the dataset pages when they exist.
+- Measured: datasets 28,832 on HDX (the spec draft guessed 17,000). Data files: data.gov.ro 6.6 MB, africaopendata.org 5.0 MB, HDX 37.7 MB. HTML files about 10 KB.
+
+**Hard**
+- The browser extension was not connected. I checked the page script with `node --check` and a stub-DOM run only (render, open a row, search, no match). Layout, dark theme and phone width are not checked.
+
+**Decided**
+- Data goes in a separate `.js` file, not inline. Rationale: `fetch()` fails on `file://`, and a `<script src>` works. Cost: a page is two files, not one (P2 rule relaxed for P7 only).
+- Fields UI is in the page but appears only when `has_fields` is true. Cost: about 1 KB of unused code until P8 runs.
+- Dataset text is cut to 300 characters and resource names to 120 to limit size. Cost: the full notes are on the portal only.
+
 ## 2026-10-27 — Skip large portals; .gitignore fixed
 
 **Done**

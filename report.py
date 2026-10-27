@@ -6,8 +6,9 @@ Usage:
     python report.py --out site
     python report.py --data data --out site
 
-Reads <data>/<host>/stats/{orgs.csv,org-monthly.csv,datasets.csv,summary.json}.
-Writes (overwriting) <out>/index.html and <out>/<host>.html.
+Reads <data>/<host>/stats/{orgs.csv,org-monthly.csv,datasets.csv,summary.json} and,
+for the dataset browser section, <data>/<host>/datasets.jsonl and fields.jsonl.
+Writes (overwriting) <out>/index.html, <out>/<host>.html and <out>/<host>-datasets.js.
 Each page is one self-contained file (inline CSS and JavaScript, no external
 resources). The same input gives the same bytes: the clock is never used.
 Spec: docs/specs/P2-report.md. Standard library only.
@@ -19,6 +20,9 @@ import html
 import json
 import os
 import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import browse  # noqa: E402
 
 # host -> base URL of the portal (default: https://<host>)
 PORTAL_BASE = {
@@ -297,7 +301,7 @@ def fmt_int(n):
     return "{:,}".format(int(n))
 
 
-def portal_page(host, portal):
+def portal_page(host, portal, browse_data=None):
     s = portal["summary"]
     data = build_data(host, portal)
     esc = html.escape
@@ -327,7 +331,13 @@ def portal_page(host, portal):
          "cnt": cnt, "note": note_html}
     script = ("<script id=\"data\" type=\"application/json\">%s</script>\n<script>%s</script>\n"
               % (embed_json(data), JS))
-    return page(host + " - publishing report", body, script)
+    if browse_data is not None:
+        body = body.replace("<footer>", browse.section(host) + "<footer>", 1)
+        script += browse.script_tag(host) + "<script>%s</script>\n" % browse.JS
+    text = page(host + " - publishing report", body, script)
+    if browse_data is not None:
+        text = text.replace("</style>", browse.CSS + "</style>", 1)
+    return text
 
 
 def index_row(host, portal):
@@ -388,7 +398,13 @@ def main():
         sys.exit("No %s/*/stats/summary.json found. Run org-stats.py first." % args.data)
     os.makedirs(args.out, exist_ok=True)
     for host, portal in portals.items():
-        text = portal_page(host, portal)
+        jsonl = os.path.join(args.data, host, "datasets.jsonl")
+        bdata = None
+        if os.path.exists(jsonl):
+            bdata = browse.build_data(host, portal_base(host), jsonl,
+                                      os.path.join(args.data, host, "fields.jsonl"))
+            write(os.path.join(args.out, host + "-datasets.js"), browse.js_file(bdata))
+        text = portal_page(host, portal, bdata)
         write(os.path.join(args.out, host + ".html"), text)
         print("%s: %d bytes" % (host, len(text.encode("utf-8"))))
     text = index_page(portals)

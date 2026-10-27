@@ -14,8 +14,12 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [x] **P4 — Portal registry.** `portal-probe.py` → `docs/reference/portal-probe.csv`. Spec: `docs/specs/P4-portal-registry.md`.
 - [x] **P5 — Choose portals to add.** Rule (user): Romania + EU national portals. List: `docs/reference/portals-selected.csv` (12 portals: 3 current, 1 RO, 8 EU national).
 - [ ] **P6 — Fetch the active new portals** (ingest work) and run P1 and P2 on them: data.primariatm.ro, podatki.gov.si, avoindata.fi, data.gov.lv, portal.opendata.dk.
+- [x] **P7 — Dataset browser.** `browse.py` (a module used by `report.py`) adds a "Datasets" section to `site/<host>.html` and writes `site/<host>-datasets.js` (gitignored). Spec: `docs/specs/P7-dataset-browser.md`. Done 2026-10-27. The fields UI is built but hidden until `fields.jsonl` exists. Tests: `tests/test_browse.py`.
+- [ ] **P8 — Fetch resource fields.** `fetch-fields.py`: `datastore_search?limit=0` per `datastore_active` resource. Spec: `docs/specs/P8-fetch-fields.md`. Prior art checked: none found for a whole portal.
 - [ ] Later: activate the large portals (ckan.govdata.de, data.gov.gr, data.gov.ie, data.overheid.nl, data.humdata.org) when development is stable. Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
 - [ ] katalog.data.go.id: the host does not resolve (DNS error, 2026-10-27). Check again before P1 runs.
+
+- [ ] Add 2–3 small sample portals (proposal: portal.opendata.dk 631, data.gov.lv 1,574, avoindata.fi 2,611 datasets). Then run `fetch-datasets.py`, `org-stats.py`, `report.py`. Waiting for the user's choice.
 
 ## Bugs and defects
 
@@ -29,6 +33,8 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 
 - [ ] P3 later: compare resource `created` and `size` in the diff; stream the sort if a portal needs too much memory (HDX: 260 MB now).
 
+- [ ] P7: check the "Datasets" section of `site/*.html` in a real browser (360 px, dark theme, large lists). Only a syntax check and a stub-DOM run were done; the browser extension was not connected.
+- [ ] P7: the `*-datasets.js` data files are large (data.gov.ro 6.6 MB, africaopendata.org 5.0 MB; HDX was 38 MB). They are gitignored. A later publish step (GitHub Pages) must build them.
 - [ ] P2: check the pages in a real browser (360 px width, dark theme, tooltips, vertical month headers). Not done yet: the browser extension was not connected on 2026-10-27.
 - [ ] P2: run the dataviz palette validator on the two heatmap ramps.
 - [ ] P1/P2: add distinct datasets per org per year to P1 output, so the All-years tooltip is exact (now a sum of monthly counts).
