@@ -1,5 +1,16 @@
 # Activity
 
+## 2026-10-27 — Skip large portals; .gitignore fixed
+
+**Done**
+- Added the column `active` to `docs/reference/portals-selected.csv`. Active: 7 portals under 10,000 datasets. Not active: ckan.govdata.de, data.humdata.org, data.gov.gr, data.gov.ie, data.overheid.nl.
+- Removed `/site` (mkdocs template line) from `.gitignore`.
+- Committed the ingest session's `.gitignore` edits (`/docs/reference/init/*`, `/data/`) and its staged removal of 10 legacy data files from the index. The files stay on disk.
+
+**Decided**
+- Large portals are skipped during development (user). Threshold: 10,000 datasets, by Opus. Rationale: the next portal under it has 9,326 datasets (podatki.gov.si); the ones above it start at 20,760. Cost: no large-portal comparison until they are activated.
+- data.humdata.org keeps its existing stats and report page, but is not active for new fetches and weekly snapshots.
+
 ## 2026-10-27 — User decisions after P1–P4
 
 **Done**

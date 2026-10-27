@@ -217,6 +217,7 @@ Items from the 2023 doc and from `readme.md`. Status on 2026-10-27.
 7. Snapshots: **weekly**, stored as **GitHub release assets** (spec `docs/specs/P3b-snapshot-schedule.md`).
 8. Portals to add: **Romania + EU national portals** (`docs/reference/portals-selected.csv`).
 9. HDX: **keep it, with the note**; leave it out of cross-portal comparisons until its dates are studied.
+10. Large portals (10,000 datasets or more) are **skipped while the project is in development** (column `active` in `portals-selected.csv`).
 
 ### Still open
 

@@ -1,5 +1,6 @@
 # Releases
 
+- v0.10.0 — 2026-10-27 — Skip large portals during development (`active` column); `.gitignore` fixed, `data/` no longer tracked.
 - v0.9.0 — 2026-10-27 — User decisions: weekly release-asset snapshots (P3b spec), selected portals list.
 - v0.8.0 — 2026-10-27 — P4 portal probe: `portal-probe.py` and `docs/reference/portal-probe.csv` (170 working CKAN portals of 526).
 - v0.7.0 — 2026-10-27 — P2 static report: `report.py` and `site/`.

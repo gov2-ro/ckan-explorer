@@ -10,7 +10,9 @@ Every week, fetch each selected portal, make a slim snapshot (P3), make the diff
 
 ## Portal list
 
-`docs/reference/portals-selected.csv`, column `url`. The workflow reads this file; there is no second list.
+`docs/reference/portals-selected.csv`, column `url`, only rows with `active = yes`. The workflow reads this file; there is no second list.
+
+Rule (user, 2026-10-27): during development, portals with 10,000 datasets or more are not active. Change the `active` column to include them later.
 
 ## Workflow
 
@@ -32,7 +34,7 @@ Every week, fetch each selected portal, make a slim snapshot (P3), make the diff
 
 ## Limits (to check in the first run)
 
-- GitHub job limit is 6 hours. Expected time is under 1 hour; govdata.de (145k datasets) is the largest part.
+- GitHub job limit is 6 hours. Expected time with the active portals is a few minutes.
 - A release asset can be up to 2 GB. Expected sizes are under 50 MB.
 
 ## Out of scope

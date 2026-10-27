@@ -13,7 +13,8 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [ ] P3c: retention of snapshot releases (about 900 MB a year expected). Scheduled, dated fetches; list new, changed and deleted datasets.
 - [x] **P4 — Portal registry.** `portal-probe.py` → `docs/reference/portal-probe.csv`. Spec: `docs/specs/P4-portal-registry.md`.
 - [x] **P5 — Choose portals to add.** Rule (user): Romania + EU national portals. List: `docs/reference/portals-selected.csv` (12 portals: 3 current, 1 RO, 8 EU national).
-- [ ] **P6 — Fetch the new portals** (ingest work) and run P1 and P2 on them. ckan.govdata.de has 145k datasets: check time and disk first. Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
+- [ ] **P6 — Fetch the active new portals** (ingest work) and run P1 and P2 on them: data.primariatm.ro, podatki.gov.si, avoindata.fi, data.gov.lv, portal.opendata.dk.
+- [ ] Later: activate the large portals (ckan.govdata.de, data.gov.gr, data.gov.ie, data.overheid.nl, data.humdata.org) when development is stable. Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
 - [ ] katalog.data.go.id: the host does not resolve (DNS error, 2026-10-27). Check again before P1 runs.
 
 ## Bugs and defects
@@ -33,7 +34,6 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [ ] P1/P2: add distinct datasets per org per year to P1 output, so the All-years tooltip is exact (now a sum of monthly counts).
 - [ ] P2: accessibility — a table view or a texture for the heatmap.
 - [ ] P2: test the portal base URL map (for example `data.gov.md` → `/ckan`).
-- [ ] `.gitignore` has `/site` (from the Python template, for mkdocs). `site/` is committed with `git add -f`. Remove that line when the ingest session's `.gitignore` edits are committed.
 
 - [ ] P4: deduplicate host aliases (data.qld.gov.au / www.data.qld.gov.au / geoscience; govdata.de / ckan.govdata.de; data.gov.uk / www.data.gov.uk) before portals are chosen.
 - [ ] P4: probe again the 65 `timeout` and 54 `http_error` portals; some failures can be temporary.
