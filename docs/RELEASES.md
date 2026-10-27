@@ -1,5 +1,6 @@
 # Releases
 
+- v0.8.0 — 2026-10-27 — P4 portal probe: `portal-probe.py` and `docs/reference/portal-probe.csv` (170 working CKAN portals of 526).
 - v0.7.0 — 2026-10-27 — P2 static report: `report.py` and `site/`.
 - v0.6.0 — 2026-10-27 — P3 local part: `snapshot.py` and `diff-snapshots.py`.
 - v0.5.0 — 2026-10-27 — Specs and briefs for P2 (report), P3 (snapshots, local part), P4 (portal probe).

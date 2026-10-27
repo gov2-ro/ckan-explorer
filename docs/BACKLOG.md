@@ -10,7 +10,8 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [x] **P2 — Report.** `report.py` writes `site/`. Spec: `docs/specs/P2-report.md`. Static HTML in the repo: top-orgs heatmap (uploads per period; last 5 years, last year; top 50 = union of top by uploads and by datasets) and most active datasets (longest timespan, most uploads).
 - [x] **P3a — Snapshots and diff, local part.** `snapshot.py`, `diff-snapshots.py`. Spec: `docs/specs/P3-snapshots.md`.
 - [ ] **P3b — Snapshot storage, schedule, retention.** Waits for the user. Size: about 17 MB of gzip per date for the 3 portals (HDX 12.4 MB). Scheduled, dated fetches; list new, changed and deleted datasets.
-- [~] **P4 — Portal registry.** Spec: `docs/specs/P4-portal-registry.md`; brief ready. Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
+- [x] **P4 — Portal registry.** `portal-probe.py` → `docs/reference/portal-probe.csv`. Spec: `docs/specs/P4-portal-registry.md`.
+- [ ] **P5 — Choose portals to add.** Waits for the user's rule. Input: 170 `ok` portals in `portal-probe.csv`. Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
 - [ ] katalog.data.go.id: the host does not resolve (DNS error, 2026-10-27). Check again before P1 runs.
 
 ## Bugs and defects
@@ -32,7 +33,13 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [ ] P2: test the portal base URL map (for example `data.gov.md` → `/ckan`).
 - [ ] `.gitignore` has `/site` (from the Python template, for mkdocs). `site/` is committed with `git add -f`. Remove that line when the ingest session's `.gitignore` edits are committed.
 
+- [ ] P4: deduplicate host aliases (data.qld.gov.au / www.data.qld.gov.au / geoscience; govdata.de / ckan.govdata.de; data.gov.uk / www.data.gov.uk) before portals are chosen.
+- [ ] P4: probe again the 65 `timeout` and 54 `http_error` portals; some failures can be temporary.
+- [ ] P4: examine the 1 `no_search` portal, and the `ok` portals with no `ckan_version`.
+
 ## Verified limits
+
+- [-] data.gov.md CKAN API. Reason: `/ckan/api/3/action/status_show` and `/api/3/action/status_show` both return HTTP 404 (curl, 2026-10-27, also in the P4 probe). The portal does not expose the CKAN API now.
 
 - [-] Add `private` and `state` to the slim snapshot record. Reason: `package_search` returns only public, active datasets, so these fields do not change between snapshots. A deletion shows as a missing dataset.
 

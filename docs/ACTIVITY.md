@@ -1,5 +1,22 @@
 # Activity
 
+## 2026-10-27 — P4 portal probe built (Sonnet) and reviewed (Opus)
+
+**Done**
+- Sonnet built `portal-probe.py` with 7 tests (local `http.server`, no network). One full run on 526 URLs: 491 s with 8 workers.
+- Result in `docs/reference/portal-probe.csv`: ok 170, no_search 1, not_ckan 106, http_error 54, timeout 65, dns_error 81, tls_error 33, conn_error 16. Size bands of `ok`: under 100: 49; 100–999: 60; 1000–9999: 33; 10000–99999: 21; 100000 or more: 7.
+- Largest `ok`: b2find.eudat.eu 1,473,955 datasets; geoscience.data.qld.gov.au 192,766; data.qld.gov.au 188,891; govdata.de 145,214; data.gov.au 141,332.
+- `ok` in Romania: data.gov.ro (5260, CKAN 2.8.3) and data.primariatm.ro (36, CKAN 2.10.11). 47 `ok` portals have an EU country-code host.
+- Opus review: tests pass; the CSV has 526 rows, sorted. Checked data.gov.md by hand: HTTP 404 on both API paths. This is the portal, not the probe.
+
+**Hard**
+- 280 of 526 candidates do not answer as CKAN. The 2023 list is old.
+- Several portals appear under more than one host name.
+
+**Decided**
+- Amend the P4 spec to match two builder choices: a network failure on `status_show` skips `package_search` (avoids double timeouts), and `site_url` is not recorded.
+- Mark data.gov.md as a verified limit.
+
 ## 2026-10-27 — P2 report built (Sonnet) and reviewed (Opus)
 
 **Done**

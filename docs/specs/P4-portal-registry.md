@@ -12,7 +12,7 @@ Find which candidate portals have a working CKAN API, and how large they are. Th
 
 For each URL in the input:
 
-1. Call `{url}/api/3/action/status_show`. If it gives `success: true`, record `ckan_version` and `site_url`.
+1. Call `{url}/api/3/action/status_show`. If it gives `success: true`, record `ckan_version`. If this call fails at network level (timeout, DNS, TLS, connection), skip step 2 and record that failure.
 2. Call `{url}/api/3/action/package_search?rows=0`. If it gives `success: true`, record `result.count` as `datasets`.
 3. If both calls fail with HTTP 404 and the URL has a path, try again once with the host root (`https://<host>`). Record the URL that worked as `api_base`.
 
@@ -45,6 +45,8 @@ Rules:
 `checked_on` is the date of the run (`YYYY-MM-DD`). This is the only output that uses the clock.
 
 Stdout at the end: the count per `status`, and the count of `ok` portals in size bands: < 100, 100–999, 1000–9999, 10000–99999, ≥ 100000 datasets.
+
+Amended 2026-10-27 after the build: step 1 no longer records `site_url` (it was not in the output columns), and a network-level failure skips step 2.
 
 ## Interface
 

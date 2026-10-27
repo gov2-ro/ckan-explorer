@@ -1,0 +1,527 @@
+host,url,api_base,status,http_status,ckan_version,datasets,final_host,error,checked_on
+130.179.67.140,https://130.179.67.140,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+adr.unaids.org,https://adr.unaids.org,https://adr.unaids.org,ok,200,2.11.4,599,,,2026-10-27
+africaopendata.org,https://africaopendata.org,https://africaopendata.org,ok,200,2.11.4,6982,open.africa,,2026-10-27
+agridata.tn,https://agridata.tn,,tls_error,,,,,"URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'agridata.tn'. (_ssl.c:1144)>",2026-10-27
+annuario.comune.fi.it,https://annuario.comune.fi.it/ckan,,not_ckan,404,,,,HTTP 404,2026-10-27
+apgc.awi.de,https://apgc.awi.de,,timeout,,,,,TimeoutError: The read operation timed out,2026-10-27
+api.foodsecurityportal.org,https://api.foodsecurityportal.org,,http_error,403,,,,HTTP 403,2026-10-27
+arcticatlas.geobotany.org,https://arcticatlas.geobotany.org/catalog,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+avindata.ca,https://avindata.ca,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+avoindata.fi,https://avoindata.fi/data,https://avoindata.fi/data,ok,200,2.11.6,2611,avoindata.suomi.fi,,2026-10-27
+b2find.eudat.eu,https://b2find.eudat.eu,https://b2find.eudat.eu,ok,200,2.9.8,1473955,,,2026-10-27
+ballaratopendata.org.au,https://ballaratopendata.org.au,https://ballaratopendata.org.au,ok,200,2.9.5,476,,,2026-10-27
+basedosdados.org,https://basedosdados.org,,not_ckan,404,,,,HTTP 404,2026-10-27
+bermuda.io,https://bermuda.io,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+bernco.civicdashboards.com,https://bernco.civicdashboards.com,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+beta.ukdataservice.ac.uk,https://beta.ukdataservice.ac.uk/datacatalogue/studies/%23!?Search&%26Page&1%26Rows&10%26Sort&0%26DateFrom&440%26DateTo&2020/ckan,,not_ckan,200,,,datacatalogue.ukdataservice.ac.uk,not JSON,2026-10-27
+bigdata-metadados.icict.fiocruz.br,https://bigdata-metadados.icict.fiocruz.br,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+bmckan.cpami.gov.tw,https://bmckan.cpami.gov.tw,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+buildingamerica.openei.org,https://buildingamerica.openei.org,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+canwin-datahub.ad.umanitoba.ca,https://canwin-datahub.ad.umanitoba.ca/data,https://canwin-datahub.ad.umanitoba.ca/data,ok,200,2.11.6,48971,,,2026-10-27
+catalog-intaros.nersc.no,https://catalog-intaros.nersc.no,https://catalog-intaros.nersc.no,ok,200,2.11.2,190,,,2026-10-27
+catalog.data.gov,https://catalog.data.gov,,not_ckan,404,,,,HTTP 404,2026-10-27
+catalog.industrie.gov.tn,https://catalog.industrie.gov.tn,,conn_error,,,,,URLError: <urlopen error [Errno 61] Connection refused>,2026-10-27
+catalogo.datosabiertos.gob.ec,https://catalogo.datosabiertos.gob.ec,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+catalogo.governoaberto.sp.gov.br,https://catalogo.governoaberto.sp.gov.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+catalogue.cioos.ca,https://catalogue.cioos.ca,https://catalogue.cioos.ca,ok,200,2.9.11,3924,,,2026-10-27
+catalogue.data.gov.bc.ca,https://catalogue.data.gov.bc.ca,https://catalogue.data.gov.bc.ca,ok,200,2.9.5,3364,,,2026-10-27
+catalogue.data.wa.gov.au,https://catalogue.data.wa.gov.au,https://catalogue.data.wa.gov.au,ok,200,2.11.5,2921,,,2026-10-27
+catalogue.nextgeoss.eu,https://catalogue.nextgeoss.eu,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1144)>,2026-10-27
+catalogue.ogsl.ca,https://catalogue.ogsl.ca,https://catalogue.ogsl.ca,ok,200,2.9.11,435,,,2026-10-27
+catalogue.simocean.pt,https://catalogue.simocean.pt,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ck.govdata.gov.br,https://ck.govdata.gov.br,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ckan-d4s.d4science.org,https://ckan-d4s.d4science.org,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+ckan.africadatahub.org,https://ckan.africadatahub.org,,not_ckan,200,,,www.africadatahub.org,not JSON,2026-10-27
+ckan.cabi.org,https://ckan.cabi.org/data,https://ckan.cabi.org,ok,200,2.11.3,2,datarepository.cabi.org,,2026-10-27
+ckan.dev.pdnd.italia.it,https://ckan.dev.pdnd.italia.it,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ckan.earlham.ac.uk,https://ckan.earlham.ac.uk,,not_ckan,404,,,,HTTP 404,2026-10-27
+ckan.ev.openindustry.in,https://ckan.ev.openindustry.in,,http_error,503,,,,HTTP 503,2026-10-27
+ckan.fiware-testbed.jp,https://ckan.fiware-testbed.jp,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ckan.geonet-mrn.de,https://ckan.geonet-mrn.de,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ckan.govdata.de,https://ckan.govdata.de,https://ckan.govdata.de,ok,200,2.10.11,145214,,,2026-10-27
+ckan.grassroots.tools,https://ckan.grassroots.tools,,http_error,502,,,,HTTP 502,2026-10-27
+ckan.gsi.go.jp,https://ckan.gsi.go.jp,,conn_error,,,,,URLError: <urlopen error [Errno 51] Network is unreachable>,2026-10-27
+ckan.jbrj.gov.br,https://ckan.jbrj.gov.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+ckan.opendatamalta.com,https://ckan.opendatamalta.com,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ckan.otevrenamesta.cz,https://ckan.otevrenamesta.cz,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ckan.pearlpv-cost.eu,https://ckan.pearlpv-cost.eu,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ckan.pf-sapporo.jp,https://ckan.pf-sapporo.jp,https://ckan.pf-sapporo.jp,ok,200,2.9.11,262,,,2026-10-27
+ckan.pref.shizuoka.jp,https://ckan.pref.shizuoka.jp,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ckan.project-hobbit.eu,https://ckan.project-hobbit.eu,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+ckan.sansa.saeoss.org,https://ckan.sansa.saeoss.org,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ckan.seki.jx.org,https://ckan.seki.jx.org,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ckan.test-app.vwtelecom.com,https://ckan.test-app.vwtelecom.com,,tls_error,,,,,URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1144)>,2026-10-27
+ckancc.g-location-server.site,https://ckancc.g-location-server.site,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ckanmtp.ymparisto.fi,https://ckanmtp.ymparisto.fi,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+ckanviz.swige.unhcr.org,https://ckanviz.swige.unhcr.org,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+claircitydata.cbs.nl,https://claircitydata.cbs.nl,,not_ckan,404,,,,HTTP 404,2026-10-27
+coat.nina.no,https://coat.nina.no/ckan,,not_ckan,200,,,data.coat.no,not JSON,2026-10-27
+dadesobertes.salou.cat,https://dadesobertes.salou.cat,https://dadesobertes.salou.cat,ok,200,2.11.5,36,,,2026-10-27
+dados.agricultura.gov.br,https://dados.agricultura.gov.br,https://dados.agricultura.gov.br,ok,200,2.6.9,13,,,2026-10-27
+dados.al.gov.br,https://dados.al.gov.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dados.ana.gov.br,https://dados.ana.gov.br,,timeout,,,,,TimeoutError: The read operation timed out,2026-10-27
+dados.antt.gov.br,https://dados.antt.gov.br,,not_ckan,200,,,,not JSON,2026-10-27
+dados.contraosagrotoxicos.org,https://dados.contraosagrotoxicos.org,,http_error,503,,,,HTTP 503,2026-10-27
+dados.cultura.gov.br,https://dados.cultura.gov.br,,http_error,403,,,,HTTP 403,2026-10-27
+dados.cvm.gov.br,https://dados.cvm.gov.br,https://dados.cvm.gov.br,ok,200,2.11.0,54,,,2026-10-27
+dados.df.gov.br,https://dados.df.gov.br,,timeout,,,,,URLError: <urlopen error _ssl.c:1126: The handshake operation timed out>,2026-10-27
+dados.fortaleza.ce.gov.br,https://dados.fortaleza.ce.gov.br,https://dados.fortaleza.ce.gov.br,ok,200,2.9.2,638,,,2026-10-27
+dados.gov.br,https://dados.gov.br,,http_error,401,,,,HTTP 401,2026-10-27
+dados.ibict.br,https://dados.ibict.br,https://dados.ibict.br,ok,200,2.6.2,63,,,2026-10-27
+dados.ifms.edu.br,https://dados.ifms.edu.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dados.ifmt.edu.br,https://dados.ifmt.edu.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dados.ifrn.edu.br,https://dados.ifrn.edu.br,https://dados.ifrn.edu.br,ok,200,2.11.5,12,,,2026-10-27
+dados.ifro.edu.br,https://dados.ifro.edu.br,https://dados.ifro.edu.br,ok,200,2.6.0,23,,,2026-10-27
+dados.ifrs.edu.br,https://dados.ifrs.edu.br,,not_ckan,404,,,,HTTP 404,2026-10-27
+dados.ifsertao-pe.edu.br,https://dados.ifsertao-pe.edu.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dados.ifsp.edu.br,https://dados.ifsp.edu.br,,not_ckan,202,,,,not JSON,2026-10-27
+dados.ifsuldeminas.edu.br,https://dados.ifsuldeminas.edu.br,,http_error,502,,,,HTTP 502,2026-10-27
+dados.justica.gov.pt,https://dados.justica.gov.pt,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dados.mda.gov.br,https://dados.mda.gov.br,,http_error,403,,,sistemasweb.agricultura.gov.br,HTTP 403,2026-10-27
+dados.mg.gov.br,https://dados.mg.gov.br,https://dados.mg.gov.br,ok,200,2.9.5,101,,,2026-10-27
+dados.mma.gov.br,https://dados.mma.gov.br,https://dados.mma.gov.br,ok,200,2.6.2,56,,,2026-10-27
+dados.natal.br,https://dados.natal.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dados.ons.org.br,https://dados.ons.org.br,https://dados.ons.org.br,ok,200,2.11.5,85,,,2026-10-27
+dados.pbh.gov.br,https://dados.pbh.gov.br,https://dados.pbh.gov.br,ok,200,2.10.5,614,,,2026-10-27
+dados.prefeitura.sp.gov.br,https://dados.prefeitura.sp.gov.br,https://dados.prefeitura.sp.gov.br,ok,200,2.7.7,487,,,2026-10-27
+dados.recife.pe.gov.br,https://dados.recife.pe.gov.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dados.rs.gov.br,https://dados.rs.gov.br,https://dados.rs.gov.br,ok,200,2.11.0,416,,,2026-10-27
+dados.tce.rs.gov.br,https://dados.tce.rs.gov.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dados.ufca.edu.br,https://dados.ufca.edu.br,https://dados.ufca.edu.br,ok,200,,19,,,2026-10-27
+dados.ufcspa.edu.br,https://dados.ufcspa.edu.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dados.ufes.br,https://dados.ufes.br,https://dados.ufes.br,ok,200,2.10.3,5,,,2026-10-27
+dados.uffs.edu.br,https://dados.uffs.edu.br,https://dados.uffs.edu.br,ok,200,2.9.7,24,,,2026-10-27
+dados.ufop.br,https://dados.ufop.br,https://dados.ufop.br,ok,200,2.11.4,70,,,2026-10-27
+dados.ufpel.edu.br,https://dados.ufpel.edu.br,https://dados.ufpel.edu.br,ok,200,2.8.6,34,,,2026-10-27
+dados.ufpi.br,https://dados.ufpi.br,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1144)>,2026-10-27
+dados.ufpr.br,https://dados.ufpr.br,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1144)>,2026-10-27
+dados.ufrgs.br,https://dados.ufrgs.br,,not_ckan,200,,,www1.ufrgs.br,not JSON,2026-10-27
+dados.ufrn.br,https://dados.ufrn.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dados.ufrr.br,https://dados.ufrr.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dados.ufsm.br,https://dados.ufsm.br,,conn_error,,,,,URLError: <urlopen error [Errno 61] Connection refused>,2026-10-27
+dados.unifesspa.edu.br,https://dados.unifesspa.edu.br,https://dados.unifesspa.edu.br,ok,200,2.11.1,38,,,2026-10-27
+dadosabertos.antaq.gov.br,https://dadosabertos.antaq.gov.br,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+dadosabertos.bcb.gov.br,https://dadosabertos.bcb.gov.br,https://dadosabertos.bcb.gov.br,ok,200,2.10.10,4261,,,2026-10-27
+dadosabertos.bndes.gov.br,https://dadosabertos.bndes.gov.br,https://dadosabertos.bndes.gov.br,ok,200,2.11.3,47,,,2026-10-27
+dadosabertos.capes.gov.br,https://dadosabertos.capes.gov.br,https://dadosabertos.capes.gov.br,ok,200,2.9.5,91,,,2026-10-27
+dadosabertos.dataprev.gov.br,https://dadosabertos.dataprev.gov.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dadosabertos.ibama.gov.br,https://dadosabertos.ibama.gov.br,,http_error,403,,,,HTTP 403,2026-10-27
+dadosabertos.ifal.edu.br,https://dadosabertos.ifal.edu.br,https://dadosabertos.ifal.edu.br,ok,200,2.8.7,48,,,2026-10-27
+dadosabertos.ifc.edu.br,https://dadosabertos.ifc.edu.br,,not_ckan,200,,,acessonegado.ifc.edu.br,not JSON,2026-10-27
+dadosabertos.iftm.edu.br,https://dadosabertos.iftm.edu.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dadosabertos.prefeitura.poa.br,https://dadosabertos.prefeitura.poa.br,https://dadosabertos.prefeitura.poa.br,ok,200,2.7.2,62,dadosabertos.poa.br,,2026-10-27
+dadosabertos.senado.gov.br,https://dadosabertos.senado.gov.br/data,,http_error,401,,,www12.senado.leg.br,HTTP 401,2026-10-27
+dadosabertos.ufersa.edu.br,https://dadosabertos.ufersa.edu.br,https://dadosabertos.ufersa.edu.br,ok,200,2.12.0,13,,,2026-10-27
+dadosabertos.ufma.br,https://dadosabertos.ufma.br,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1144)>,2026-10-27
+dadosabertos.ufms.br,https://dadosabertos.ufms.br,https://dadosabertos.ufms.br,ok,200,2.9.5,38,,,2026-10-27
+dadosabertos.unilab.edu.br,https://dadosabertos.unilab.edu.br,,timeout,,,,,TimeoutError: The read operation timed out,2026-10-27
+dadosjuventude.ibict.br,https://dadosjuventude.ibict.br,,not_ckan,404,,,,HTTP 404,2026-10-27
+danepubliczne.gov.pl,https://danepubliczne.gov.pl/ckan,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1144)>,2026-10-27
+dartportal.leeds.ac.uk,https://dartportal.leeds.ac.uk,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data-gov-ua.org,https://data-gov-ua.org,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data-portal.hpc.swin.edu.au,https://data-portal.hpc.swin.edu.au,https://data-portal.hpc.swin.edu.au,ok,200,2.5.2,41,dmc.datacentral.org.au,,2026-10-27
+data-test.toll.no,https://data-test.toll.no,,http_error,522,,,,HTTP 522,2026-10-27
+data.aberdeencity.gov.uk,https://data.aberdeencity.gov.uk,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.acehselatankab.go.id,https://data.acehselatankab.go.id,https://data.acehselatankab.go.id,ok,200,2.7.4,707,,,2026-10-27
+data.agglo-royan.fr,https://data.agglo-royan.fr,https://data.agglo-royan.fr,ok,200,2.10.5,12,,,2026-10-27
+data.agriculturelittorale.fr,https://data.agriculturelittorale.fr,https://data.agriculturelittorale.fr,ok,200,2.9.5,2797,,,2026-10-27
+data.amsterdam.nl,https://data.amsterdam.nl/data,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.aurin.org.au,https://data.aurin.org.au,,not_ckan,200,,,,not JSON,2026-10-27
+data.balikpapan.go.id,https://data.balikpapan.go.id,https://data.balikpapan.go.id,ok,200,2.11.4,1258,,,2026-10-27
+data.barrowbc.gov.uk,https://data.barrowbc.gov.uk,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+data.bart.gov,https://data.bart.gov,,http_error,403,,,,HTTP 403,2026-10-27
+data.bayanat.ae,https://data.bayanat.ae,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+data.biodiversity.be,https://data.biodiversity.be,,http_error,502,,,,HTTP 502,2026-10-27
+data.birmingham.gov.uk,https://data.birmingham.gov.uk,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.birminghamal.gov,https://data.birminghamal.gov,,http_error,403,,,,HTTP 403,2026-10-27
+data.boston.gov,https://data.boston.gov,,http_error,403,,,,HTTP 403,2026-10-27
+data.bris.ac.uk,https://data.bris.ac.uk/data,https://data.bris.ac.uk/data,ok,200,2.7.5,84942,,,2026-10-27
+data.brisbane.qld.gov.au,https://data.brisbane.qld.gov.au/data,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.buenosaires.gob.ar,https://data.buenosaires.gob.ar,,http_error,504,,,,HTTP 504,2026-10-27
+data.cambridgeshireinsight.org.uk,https://data.cambridgeshireinsight.org.uk/search/field_topics/type/dataset?sort_by&changed,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.cambridgeshireinsight.org.uk,https://data.cambridgeshireinsight.org.uk/search/field_topics/type/dataset?sort_by&changed/ckan,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.cbwaterhub.ca,https://data.cbwaterhub.ca,https://data.cbwaterhub.ca,ok,200,2.11.6,452,,,2026-10-27
+data.cdc.gov.tw,https://data.cdc.gov.tw,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+data.cilacapkab.go.id,https://data.cilacapkab.go.id,,http_error,403,,,,HTTP 403,2026-10-27
+data.city.osaka.lg.jp,https://data.city.osaka.lg.jp/data,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+data.city.yokohama.lg.jp,https://data.city.yokohama.lg.jp,https://data.city.yokohama.lg.jp,ok,200,2.9.11,647,,,2026-10-27
+data.cityofboston.gov,https://data.cityofboston.gov,,not_ckan,404,,,www.cityofboston.gov,HTTP 404,2026-10-27
+data.cityofdenton.com,https://data.cityofdenton.com,,http_error,403,,,,HTTP 403,2026-10-27
+data.coat.no,https://data.coat.no,https://data.coat.no,ok,200,2.12.0,132,,,2026-10-27
+data.corkcity.ie,https://data.corkcity.ie,https://data.corkcity.ie,ok,200,2.9.16,34,,,2026-10-27
+data.datahub.freightaustralia.gov.au,https://data.datahub.freightaustralia.gov.au,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.depositar.io,https://data.depositar.io,https://data.depositar.io,ok,200,2.10.11,3632,,,2026-10-27
+data.doi.gov,https://data.doi.gov,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.ecosis.org,https://data.ecosis.org,https://data.ecosis.org,ok,200,2.10.1,220,,,2026-10-27
+data.ed.gov,https://data.ed.gov,,not_ckan,200,,,,not JSON,2026-10-27
+data.edinburghopendata.info,https://data.edinburghopendata.info,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.edincubator.eu,https://data.edincubator.eu,,http_error,520,,,,HTTP 520,2026-10-27
+data.ehealthireland.ie,https://data.ehealthireland.ie,,timeout,,,,,URLError: <urlopen error _ssl.c:1126: The handshake operation timed out>,2026-10-27
+data.england.nhs.uk,https://data.england.nhs.uk,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.env.go.jp,https://data.env.go.jp,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.europa.eu,https://data.europa.eu/euodp/en/data,,not_ckan,200,,,,not JSON,2026-10-27
+data.fingrid.fi,https://data.fingrid.fi,,http_error,403,,,,HTTP 403,2026-10-27
+data.glasgow.gov.uk,https://data.glasgow.gov.uk,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.gov.au,https://data.gov.au,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.gov.au,https://data.gov.au/data,https://data.gov.au/data,ok,200,2.11.6,141332,,,2026-10-27
+data.gov.au,https://data.gov.au/search/ckan,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.gov.bf,https://data.gov.bf,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.gov.cz,https://data.gov.cz,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.gov.gr,https://data.gov.gr,https://data.gov.gr,ok,200,2.11.3,23004,,,2026-10-27
+data.gov.hk,https://data.gov.hk/en-datasets/data,,not_ckan,200,,,,not JSON,2026-10-27
+data.gov.hr,https://data.gov.hr,,not_ckan,200,,,,not JSON,2026-10-27
+data.gov.ie,https://data.gov.ie,https://data.gov.ie,ok,200,2.9.16,22904,,,2026-10-27
+data.gov.il,https://data.gov.il,https://data.gov.il,ok,200,,1206,,,2026-10-27
+data.gov.lv,https://data.gov.lv,https://data.gov.lv,ok,200,2.11.3,1574,,,2026-10-27
+data.gov.md,https://data.gov.md/ckan,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.gov.mk,https://data.gov.mk,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+data.gov.ro,https://data.gov.ro,https://data.gov.ro,ok,200,2.8.3,5260,,,2026-10-27
+data.gov.sa,https://data.gov.sa/Data,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+data.gov.sg,https://data.gov.sg,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.gov.sk,https://data.gov.sk,,not_ckan,200,,,data.slovensko.sk,not JSON,2026-10-27
+data.gov.ua,https://data.gov.ua,https://data.gov.ua,ok,200,2.7.2,36990,,,2026-10-27
+data.gov.uk,https://data.gov.uk,https://data.gov.uk,ok,200,,59639,ckan.publishing.service.gov.uk,,2026-10-27
+data.houstontx.gov,https://data.houstontx.gov,,http_error,403,,,,HTTP 403,2026-10-27
+data.hub.zamg.ac.at,https://data.hub.zamg.ac.at,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1144)>,2026-10-27
+data.humdata.org,https://data.humdata.org,https://data.humdata.org,ok,200,2.11.4,28845,,,2026-10-27
+data.illinois.gov,https://data.illinois.gov,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.imr.gov.ua,https://data.imr.gov.ua,,http_error,523,,,,HTTP 523,2026-10-27
+data.investigatemidwest.org,https://data.investigatemidwest.org,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+data.ioos.us,https://data.ioos.us,https://data.ioos.us,ok,200,2.11.5,31498,,,2026-10-27
+data.kalamazoocity.org,https://data.kalamazoocity.org,,http_error,403,,,,HTTP 403,2026-10-27
+data.kcg.gov.tw,https://data.kcg.gov.tw,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+data.kk.dk,https://data.kk.dk,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.lexingtonky.gov,https://data.lexingtonky.gov,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.london.gov.uk,https://data.london.gov.uk/dataset,,http_error,403,,,,HTTP 403,2026-10-27
+data.maintenance.org.au,https://data.maintenance.org.au,,http_error,522,,,,HTTP 522,2026-10-27
+data.mariupolrada.gov.ua,https://data.mariupolrada.gov.ua,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.mempawahkab.go.id,https://data.mempawahkab.go.id,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.milwaukee.gov,https://data.milwaukee.gov,,http_error,403,,,,HTTP 403,2026-10-27
+data.missouriepscor.org,https://data.missouriepscor.org,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.mmr.cz,https://data.mmr.cz,,not_ckan,200,,,data.gov.cz,not JSON,2026-10-27
+data.montreal.ca,https://data.montreal.ca,https://data.montreal.ca,ok,200,2.11.5,405,donnees.montreal.ca,,2026-10-27
+data.msmt.cz,https://data.msmt.cz,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1144)>,2026-10-27
+data.nbco.gov.ie,https://data.nbco.gov.ie,https://data.nbco.gov.ie,ok,200,2.9.16,2,,,2026-10-27
+data.nhm.ac.uk,https://data.nhm.ac.uk,https://data.nhm.ac.uk,ok,200,2.9.9.3,298,,,2026-10-27
+data.nrri.umn.edu,https://data.nrri.umn.edu/data,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1144)>,2026-10-27
+data.nsw.gov.au,https://data.nsw.gov.au/data,https://data.nsw.gov.au/data,ok,200,2.11.6,17206,,,2026-10-27
+data.num.edu.mn,https://data.num.edu.mn,https://data.num.edu.mn,ok,200,2.8.1,31,,,2026-10-27
+data.odw.tw,https://data.odw.tw,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.ok.gov,https://data.ok.gov,,http_error,403,,,,HTTP 403,2026-10-27
+data.ontario.ca,https://data.ontario.ca,https://data.ontario.ca,ok,200,2.9.7,2964,,,2026-10-27
+data.open.guelph.ca,https://data.open.guelph.ca,,tls_error,,,,,URLError: <urlopen error [SSL: TLS_ALERT_HANDSHAKE_FAILURE] tls alert handshake failure (_ssl.c:1144)>,2026-10-27
+data.open.guelph.ca.,https://data.open.guelph.ca.,,tls_error,,,,,URLError: <urlopen error unknown error (0x0) (_ssl.c:898)>,2026-10-27
+data.opencolorado.org,https://data.opencolorado.org,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.opendata.durban,https://data.opendata.durban,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+data.opendataportal.at,https://data.opendataportal.at,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.opendevelopmentmekong.net,https://data.opendevelopmentmekong.net,https://data.opendevelopmentmekong.net,ok,200,2.9.9,14385,,,2026-10-27
+data.openpolice.ru,https://data.openpolice.ru,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.openstate.eu,https://data.openstate.eu,https://data.openstate.eu,ok,200,2.8.3,90,,,2026-10-27
+data.ottawa.ca,https://data.ottawa.ca,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.overheid.nl,https://data.overheid.nl/data,https://data.overheid.nl/data,ok,200,2.8.12,20760,,,2026-10-27
+data.pekalongankota.go.id,https://data.pekalongankota.go.id,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+data.pemalangkab.go.id,https://data.pemalangkab.go.id,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.pkc.gov.uk,https://data.pkc.gov.uk,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.pompanobeachfl.gov,https://data.pompanobeachfl.gov,,http_error,403,,,,HTTP 403,2026-10-27
+data.pontianakkota.go.id,https://data.pontianakkota.go.id,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.pref.kyoto.lg.jp,https://data.pref.kyoto.lg.jp,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.primariatm.ro,https://data.primariatm.ro,https://data.primariatm.ro,ok,200,2.10.11,36,,,2026-10-27
+data.purbalinggakab.go.id,https://data.purbalinggakab.go.id,https://data.purbalinggakab.go.id,ok,200,2.11.5,7328,,,2026-10-27
+data.qld.gov.au,https://data.qld.gov.au,https://data.qld.gov.au,ok,200,,188891,www.data.qld.gov.au,,2026-10-27
+data.review.fao.org,https://data.review.fao.org/ckan,,not_ckan,200,,,,not JSON,2026-10-27
+data.sa.gov.au,https://data.sa.gov.au/data,https://data.sa.gov.au/data,ok,200,2.9.12,1930,,,2026-10-27
+data.salzburgerland.com,https://data.salzburgerland.com,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.sanantonio.gov,https://data.sanantonio.gov,,http_error,403,,,,HTTP 403,2026-10-27
+data.sanjoseca.gov,https://data.sanjoseca.gov,,http_error,403,,,,HTTP 403,2026-10-27
+data.sba.gov,https://data.sba.gov,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.sgm.ru,https://data.sgm.ru,,conn_error,,,,,URLError: <urlopen error [Errno 61] Connection refused>,2026-10-27
+data.skeenasalmon.info,https://data.skeenasalmon.info,https://data.skeenasalmon.info,ok,200,2.11.4,1421,,,2026-10-27
+data.smartdublin.ie,https://data.smartdublin.ie,https://data.smartdublin.ie,ok,200,2.9.16,933,,,2026-10-27
+data.stadt-zuerich.ch,https://data.stadt-zuerich.ch,https://data.stadt-zuerich.ch,ok,200,2.11.6,942,,,2026-10-27
+data.staging.sba.gov,https://data.staging.sba.gov,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.stat.pref.miyazaki.lg.jp,https://data.stat.pref.miyazaki.lg.jp,https://data.stat.pref.miyazaki.lg.jp,ok,200,2.11.3,511,,,2026-10-27
+data.stirling.gov.uk,https://data.stirling.gov.uk,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.surrey.ca,https://data.surrey.ca,,not_ckan,200,,,opendata-surrey.hub.arcgis.com,not JSON,2026-10-27
+data.tainan.gov.tw,https://data.tainan.gov.tw,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Subject Key Identifier (_ssl.c:1144)>,2026-10-27
+data.tampere.fi,https://data.tampere.fi/data,https://data.tampere.fi/data,ok,200,2.11.6,100,,,2026-10-27
+data.techno-science.ca,https://data.techno-science.ca,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.tegalkab.go.id,https://data.tegalkab.go.id,https://data.tegalkab.go.id,ok,200,2.11.4,2618,,,2026-10-27
+data.tn.gov,https://data.tn.gov,,timeout,,,,,URLError: <urlopen error _ssl.c:1126: The handshake operation timed out>,2026-10-27
+data.transport.tn,https://data.transport.tn,,conn_error,,,,,URLError: <urlopen error [Errno 51] Network is unreachable>,2026-10-27
+data.treasury.ri.gov,https://data.treasury.ri.gov,https://data.treasury.ri.gov,ok,200,,469,,,2026-10-27
+data.uni-hannover.de,https://data.uni-hannover.de,https://data.uni-hannover.de,ok,200,2.12.0,499,,,2026-10-27
+data.vbgov.com,https://data.vbgov.com,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.vic.gov.au,https://data.vic.gov.au/data,,not_ckan,404,,,www.data.vic.gov.au,HTTP 404,2026-10-27
+data.vulekamali.gov.za,https://data.vulekamali.gov.za,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+data.waterpathogens.org,https://data.waterpathogens.org,https://data.waterpathogens.org,ok,200,2.8.3,48,,,2026-10-27
+data.whiterockcity.ca,https://data.whiterockcity.ca/data,,not_ckan,404,,,,HTTP 404,2026-10-27
+data.wonogirikab.go.id,https://data.wonogirikab.go.id,,http_error,403,,,,HTTP 403,2026-10-27
+data.wprdc.org,https://data.wprdc.org,https://data.wprdc.org,ok,200,2.12.0,371,,,2026-10-27
+data.yorkopendata.org,https://data.yorkopendata.org,https://data.yorkopendata.org,ok,200,2.11.5,1363,,,2026-10-27
+data.zagreb.hr,https://data.zagreb.hr,https://data.zagreb.hr,ok,200,2.10.3,200,,,2026-10-27
+data2.cerdi.edu.au,https://data2.cerdi.edu.au,https://data2.cerdi.edu.au,no_search,200,2.9.5,,,HTTP 502,2026-10-27
+datacatalogue.gov.ie,https://datacatalogue.gov.ie,https://datacatalogue.gov.ie,ok,200,2.9.16,1543,,,2026-10-27
+datahub.io,https://datahub.io,,not_ckan,404,,,,HTTP 404,2026-10-27
+datamx.io,https://datamx.io,https://datamx.io,ok,200,2.9.11,9762,,,2026-10-27
+datango.infoculture.ru,https://datango.infoculture.ru,,http_error,526,,,,HTTP 526,2026-10-27
+dataplatform.knmi.nl,https://dataplatform.knmi.nl,https://dataplatform.knmi.nl,ok,200,,449,,,2026-10-27
+dataplatformfiets.be,https://dataplatformfiets.be,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+datapoa.com.br,https://datapoa.com.br,,not_ckan,200,,,,not JSON,2026-10-27
+dataportal.cps.chula.ac.th,https://dataportal.cps.chula.ac.th,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1144)>,2026-10-27
+dataportal.eu-interact.org,https://dataportal.eu-interact.org,https://dataportal.eu-interact.org,ok,200,2.11.5,2317,,,2026-10-27
+dataportal.geofyn.dk,https://dataportal.geofyn.dk,,not_ckan,404,,,,HTTP 404,2026-10-27
+dataportal.gov.tc,https://dataportal.gov.tc,https://dataportal.gov.tc,ok,200,,94,,,2026-10-27
+dataportal.saeri.org,https://dataportal.saeri.org,https://dataportal.saeri.org,ok,200,2.8.2,985,,,2026-10-27
+dataportal.saeri.org,https://dataportal.saeri.org//,https://dataportal.saeri.org,ok,200,2.8.2,985,,,2026-10-27
+dataportal.smartcityinnovation.eu,https://dataportal.smartcityinnovation.eu,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+dataportal.smartme.io,https://dataportal.smartme.io,,http_error,502,,,,HTTP 502,2026-10-27
+datar.noip.me,https://datar.noip.me,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+datasets.catalogue.data.gov.dk,https://datasets.catalogue.data.gov.dk,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1144)>,2026-10-27
+datasets.datos.mincyt.gob.ar,https://datasets.datos.mincyt.gob.ar,https://datasets.datos.mincyt.gob.ar,ok,200,2.7.5,6,,,2026-10-27
+datasets.fieldsofview.in,https://datasets.fieldsofview.in,https://datasets.fieldsofview.in,ok,200,2.9.2,0,,,2026-10-27
+datasets.seed.nsw.gov.au,https://datasets.seed.nsw.gov.au,,not_ckan,202,,,,not JSON,2026-10-27
+datasets.wri.org,https://datasets.wri.org,https://datasets.wri.org,ok,200,2.11.4,46,,,2026-10-27
+datastore.landcareresearch.co.nz,https://datastore.landcareresearch.co.nz,https://datastore.landcareresearch.co.nz,ok,200,2.12.0,567,,,2026-10-27
+dataurbe.appcivico.com,https://dataurbe.appcivico.com,,http_error,521,,,,HTTP 521,2026-10-27
+dataut.vegvesen.no,https://dataut.vegvesen.no,https://dataut.vegvesen.no,ok,200,2.11.6,87,,,2026-10-27
+dataworks.calderdale.gov.uk,https://dataworks.calderdale.gov.uk,https://dataworks.calderdale.gov.uk,ok,200,datapress,256,,,2026-10-27
+daten.buergernetz.bz.it,https://daten.buergernetz.bz.it,https://daten.buergernetz.bz.it,ok,200,2.10.7,930,,,2026-10-27
+daten.rlp.de,https://daten.rlp.de,,not_ckan,200,,,open.rlp.de,not JSON,2026-10-27
+datenportal.pado-projekt.de,https://datenportal.pado-projekt.de,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+datenregister.berlin.de,https://datenregister.berlin.de,https://datenregister.berlin.de,ok,200,,2627,,,2026-10-27
+dati.arpae.it,https://dati.arpae.it,,not_ckan,404,,,,HTTP 404,2026-10-27
+dati.comune.matera.it,https://dati.comune.matera.it,,timeout,,,,,TimeoutError: The read operation timed out,2026-10-27
+dati.mit.gov.it,https://dati.mit.gov.it/catalog,https://dati.mit.gov.it/catalog,ok,200,2.9.4,71,,,2026-10-27
+dati.toscana.it,https://dati.toscana.it,https://dati.toscana.it,ok,200,2.10.4,12494,,,2026-10-27
+dati.trentino.it,https://dati.trentino.it,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+dati.ustat.miur.it,https://dati.ustat.miur.it,https://dati.ustat.miur.it,ok,200,2.8.7,70,dati-ustat.mur.gov.it,,2026-10-27
+dato.chequeado.com,https://dato.chequeado.com,,not_ckan,404,,,,HTTP 404,2026-10-27
+datos.agroindustria.gob.ar,https://datos.agroindustria.gob.ar,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+datos.alcobendas.org,https://datos.alcobendas.org,,http_error,403,,,,HTTP 403,2026-10-27
+datos.ambiente.gob.ar,https://datos.ambiente.gob.ar,,not_ckan,200,,,datos.gob.ar,not JSON,2026-10-27
+datos.arsat.com.ar,https://datos.arsat.com.ar,,conn_error,,,,,URLError: <urlopen error [Errno 9] Bad file descriptor>,2026-10-27
+datos.aytolalaguna.es,https://datos.aytolalaguna.es,,not_ckan,404,,,www.aytolalaguna.es,HTTP 404,2026-10-27
+datos.caf.com,https://datos.caf.com,,conn_error,,,,,URLError: <urlopen error [Errno 47] Address family not supported by protocol family>,2026-10-27
+datos.cali.gov.co,https://datos.cali.gov.co,,http_error,403,,,,HTTP 403,2026-10-27
+datos.congresogto.gob.mx,https://datos.congresogto.gob.mx,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+datos.cultura.gob.ar,https://datos.cultura.gob.ar,,http_error,403,,,,HTTP 403,2026-10-27
+datos.do.magnet.cl,https://datos.do.magnet.cl,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+datos.gob.ar,https://datos.gob.ar,https://datos.gob.ar,ok,200,,0,,,2026-10-27
+datos.gob.cl,https://datos.gob.cl,https://datos.gob.cl,ok,200,2.10.4,3228,,,2026-10-27
+datos.gob.sv,https://datos.gob.sv,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+datos.jus.gob.ar,https://datos.jus.gob.ar,https://datos.jus.gob.ar,ok,200,2.5.2,63,,,2026-10-27
+datos.magyp.gob.ar,https://datos.magyp.gob.ar,https://datos.magyp.gob.ar,ok,200,2.7.6,152,,,2026-10-27
+datos.minem.gob.ar,https://datos.minem.gob.ar,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+datos.minfin.gob.gt,https://datos.minfin.gob.gt,,http_error,403,,,,HTTP 403,2026-10-27
+datos.mininterior.gob.ar,https://datos.mininterior.gob.ar,https://datos.mininterior.gob.ar,ok,200,2.7.6,15,,,2026-10-27
+datos.misiones.gov.ar,https://datos.misiones.gov.ar,,tls_error,,,,,"URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'datos.misiones.gov.ar'. (_ssl.c:1144)>",2026-10-27
+datos.pami.org.ar,https://datos.pami.org.ar,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+datos.qroo.gob.mx,https://datos.qroo.gob.mx,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+datos.salud.gob.ar,https://datos.salud.gob.ar,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1144)>,2026-10-27
+datos.santander.es,https://datos.santander.es,,conn_error,,,,,ConnectionResetError: [Errno 54] Connection reset by peer,2026-10-27
+datos.techo.org,https://datos.techo.org,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+datos.transporte.gob.ar,https://datos.transporte.gob.ar,https://datos.transporte.gob.ar,ok,200,2.7.6,48,,,2026-10-27
+datos.veracruzmunicipio.gob.mx,https://datos.veracruzmunicipio.gob.mx,https://datos.veracruzmunicipio.gob.mx,ok,200,2.10.4,381,,,2026-10-27
+datos.yvera.gob.ar,https://datos.yvera.gob.ar,,http_error,502,,,,HTTP 502,2026-10-27
+datosabiertos.ayto-arganda.es,https://datosabiertos.ayto-arganda.es,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+datosabiertos.bogota.gov.co,https://datosabiertos.bogota.gov.co,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+datosabiertos.fuengirola.es,https://datosabiertos.fuengirola.es,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+datosabiertos.malaga.eu,https://datosabiertos.malaga.eu,https://datosabiertos.malaga.eu,ok,200,,1377,,,2026-10-27
+datosabiertos.mendoza.gov.ar,https://datosabiertos.mendoza.gov.ar,https://datosabiertos.mendoza.gov.ar,ok,200,2.7.6,204,,,2026-10-27
+datosabiertos.mercedes.gob.ar,https://datosabiertos.mercedes.gob.ar,https://datosabiertos.mercedes.gob.ar,ok,200,2.7.6,313,,,2026-10-27
+datosabiertos.mineduc.gob.gt,https://datosabiertos.mineduc.gob.gt,,http_error,403,,,,HTTP 403,2026-10-27
+datosabiertos.rivasciudad.es,https://datosabiertos.rivasciudad.es,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1144)>,2026-10-27
+datosestadistica.cba.gov.ar,https://datosestadistica.cba.gov.ar,,not_ckan,404,,,,HTTP 404,2026-10-27
+datospublicos.org,https://datospublicos.org/ckan,,conn_error,,,,,URLError: <urlopen error [Errno 61] Connection refused>,2026-10-27
+datosretc.mma.gob.cl,https://datosretc.mma.gob.cl,https://datosretc.mma.gob.cl,ok,200,,18,,,2026-10-27
+demo.ckan.org,https://demo.ckan.org,https://demo.ckan.org,ok,200,2.11.5,13,,,2026-10-27
+demo.datashades.com,https://demo.datashades.com,https://demo.datashades.com,ok,200,2.10.11,188,,,2026-10-27
+dev.opencity.in,https://dev.opencity.in,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+digitalthailand.gistda.or.th,https://digitalthailand.gistda.or.th,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+docs.entsoe.eu,https://docs.entsoe.eu,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+donnees.ville.montreal.qc.ca,https://donnees.ville.montreal.qc.ca,https://donnees.ville.montreal.qc.ca,ok,200,2.11.5,405,donnees.montreal.ca,,2026-10-27
+donneesquebec.ca,https://donneesquebec.ca/recherche/fr,https://donneesquebec.ca/recherche/fr,ok,200,2.11.5,1615,,,2026-10-27
+drdsi.jrc.ec.europa.eu,https://drdsi.jrc.ec.europa.eu,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+ecaidata.org,https://ecaidata.org,,not_ckan,404,,,,HTTP 404,2026-10-27
+edu.mrpam.gov.mn,https://edu.mrpam.gov.mn,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1144)>,2026-10-27
+edx.netl.doe.gov,https://edx.netl.doe.gov,https://edx.netl.doe.gov,ok,200,3.0.0,18010,,,2026-10-27
+finrahoitus.fi,https://finrahoitus.fi/data,,not_ckan,404,,,www.finrahoitus.fi,HTTP 404,2026-10-27
+flooddata.ses.nsw.gov.au,https://flooddata.ses.nsw.gov.au,https://flooddata.ses.nsw.gov.au,ok,200,2.11.5,4456,,,2026-10-27
+gardentasuna.errenteria.eus,https://gardentasuna.errenteria.eus/datuirekiak,,not_ckan,404,,,,HTTP 404,2026-10-27
+geocatalogus.nl,https://geocatalogus.nl,https://geocatalogus.nl,ok,200,2.8.3,16,,,2026-10-27
+geodata.gov.gr,https://geodata.gov.gr,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+geodm.gr,https://geodm.gr,https://geodm.gr,ok,200,2.2,694,,,2026-10-27
+geoscience.data.qld.gov.au,https://geoscience.data.qld.gov.au,https://geoscience.data.qld.gov.au,ok,200,2.10.11,192766,,,2026-10-27
+gifu-opendata.pref.gifu.lg.jp,https://gifu-opendata.pref.gifu.lg.jp,https://gifu-opendata.pref.gifu.lg.jp,ok,200,2.11.3,1883,,,2026-10-27
+gis-hub.ca,https://gis-hub.ca,,http_error,403,,,,HTTP 403,2026-10-27
+gisdata.mn.gov,https://gisdata.mn.gov,,not_ckan,200,,,gis.data.mn.gov,not JSON,2026-10-27
+govdata.de,https://govdata.de/ckan,https://govdata.de/ckan,ok,200,2.10.11,145214,www.govdata.de,,2026-10-27
+govtech.in.th,https://govtech.in.th,,conn_error,,,,,URLError: <urlopen error [Errno 61] Connection refused>,2026-10-27
+healthquery.sh.cn,https://healthquery.sh.cn,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+hidalgo1.man.poznan.pl,https://hidalgo1.man.poznan.pl,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+hri.fi,https://hri.fi/data,https://hri.fi/data,ok,200,2.11.6,593,,,2026-10-27
+hub.satudata.bappenas.go.id,https://hub.satudata.bappenas.go.id,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+hubofdata.ru,https://hubofdata.ru,,not_ckan,200,,,,not JSON,2026-10-27
+iasi.oras.digital,https://iasi.oras.digital,,http_error,501,,,,HTTP 501,2026-10-27
+iatiregistry.org,https://iatiregistry.org,https://iatiregistry.org,ok,200,,13993,,,2026-10-27
+katalog.data.go.id,https://katalog.data.go.id,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+knowledge.omaha.org.cn,https://knowledge.omaha.org.cn,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+kod.brno.cz,https://kod.brno.cz,,not_ckan,404,,,,HTTP 404,2026-10-27
+leedsdatamill.org,https://leedsdatamill.org,https://leedsdatamill.org,ok,200,datapress,641,datamillnorth.org,,2026-10-27
+library.atticawetlands.eu,https://library.atticawetlands.eu,,not_ckan,200,,,,not JSON,2026-10-27
+liityntakatalogi.suomi.fi,https://liityntakatalogi.suomi.fi,https://liityntakatalogi.suomi.fi,ok,200,2.11.6,1492,,,2026-10-27
+linkeddatacatalog.dws.informatik.uni-mannheim.de,https://linkeddatacatalog.dws.informatik.uni-mannheim.de,,tls_error,,,,,"URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'linkeddatacatalog.dws.informatik.uni-mannheim.de'. (_ssl.c:1144)>",2026-10-27
+maps.mapaction.org,https://maps.mapaction.org,https://maps.mapaction.org,ok,200,2.7.12,4615,,,2026-10-27
+mggl-ckan-web.asifarm.it,https://mggl-ckan-web.asifarm.it,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+mobidata-bw.de,https://mobidata-bw.de,https://mobidata-bw.de,ok,200,2.11.3,146,,,2026-10-27
+ngodata.ru,https://ngodata.ru,https://ngodata.ru,ok,200,2.11.5,153,,,2026-10-27
+nosdonnees.fr,https://nosdonnees.fr,,tls_error,,,,,"URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'nosdonnees.fr'. (_ssl.c:1144)>",2026-10-27
+oasishub.co,https://oasishub.co,,timeout,,,,,TimeoutError: The read operation timed out,2026-10-27
+odata.org.il,https://odata.org.il,https://odata.org.il,ok,200,2.8.1,11599,www.odata.org.il,,2026-10-27
+offenedaten.aachen.de,https://offenedaten.aachen.de,https://offenedaten.aachen.de,ok,200,2.10.1,227,,,2026-10-27
+offenedaten.de,https://offenedaten.de,,conn_error,,,,,URLError: <urlopen error [Errno 61] Connection refused>,2026-10-27
+offenedaten.frankfurt.de,https://offenedaten.frankfurt.de,,not_ckan,404,,,,HTTP 404,2026-10-27
+open.canada.ca,https://open.canada.ca/data,https://open.canada.ca/data,ok,200,2.10.8,48175,,,2026-10-27
+open.stavanger.kommune.no,https://open.stavanger.kommune.no,,not_ckan,200,,,opencom.no,not JSON,2026-10-27
+openbaladiati.tn,https://openbaladiati.tn,,not_ckan,404,,,,HTTP 404,2026-10-27
+openbudgetsindia.org,https://openbudgetsindia.org,,http_error,520,,,,HTTP 520,2026-10-27
+opendata-ajuntament.barcelona.cat,https://opendata-ajuntament.barcelona.cat/data,https://opendata-ajuntament.barcelona.cat/data,ok,200,2.6.9,558,,,2026-10-27
+opendata.aachen.de,https://opendata.aachen.de,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+opendata.abbeville.fr,https://opendata.abbeville.fr,,conn_error,,,,,URLError: <urlopen error [Errno 61] Connection refused>,2026-10-27
+opendata.adico.fr,https://opendata.adico.fr,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+opendata.alcoi.org,https://opendata.alcoi.org/data,https://opendata.alcoi.org/data,ok,200,2.7.4,32,,,2026-10-27
+opendata.angus.gov.uk,https://opendata.angus.gov.uk,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1144)>,2026-10-27
+opendata.aragon.es,https://opendata.aragon.es/catalogo,,not_ckan,200,,,,not JSON,2026-10-27
+opendata.aragon.es,https://opendata.aragon.es/data/data,,not_ckan,200,,,,not JSON,2026-10-27
+opendata.awt.be,https://opendata.awt.be,,not_ckan,200,,,www.odwb.be,not JSON,2026-10-27
+opendata.ayto-caceres.es,https://opendata.ayto-caceres.es,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1144)>,2026-10-27
+opendata.bayern.de,https://opendata.bayern.de/data,,not_ckan,200,,,open.bydata.de,not JSON,2026-10-27
+opendata.br7.org.il,https://opendata.br7.org.il,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+opendata.cabq.gov,https://opendata.cabq.gov,,http_error,403,,,,HTTP 403,2026-10-27
+opendata.caceres.es,https://opendata.caceres.es,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1144)>,2026-10-27
+opendata.camden.gov.uk,https://opendata.camden.gov.uk/browse?tags&planning%26utf8&T%26sortBy&relevance/data,,http_error,406,,,,HTTP 406,2026-10-27
+opendata.city-adm.lviv.ua,https://opendata.city-adm.lviv.ua,,http_error,403,,,,HTTP 403,2026-10-27
+opendata.city.moka.lg.jp,https://opendata.city.moka.lg.jp,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+opendata.com.pk,https://opendata.com.pk,https://opendata.com.pk,ok,200,2.8.3,1505,,,2026-10-27
+opendata.comune.bari.it,https://opendata.comune.bari.it,https://opendata.comune.bari.it,ok,200,2.6.8,171,,,2026-10-27
+opendata.comune.re.it,https://opendata.comune.re.it,https://opendata.comune.re.it,ok,200,2.10.9,248,,,2026-10-27
+opendata.dev-vlaanderen.be,https://opendata.dev-vlaanderen.be,,tls_error,,,,,"URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'opendata.dev-vlaanderen.be'. (_ssl.c:1144)>",2026-10-27
+opendata.e-land.gov.tw,https://opendata.e-land.gov.tw,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+opendata.eol.org,https://opendata.eol.org,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+opendata.euroinfosicilia.it,https://opendata.euroinfosicilia.it,https://opendata.euroinfosicilia.it,ok,200,2.10.3,106,,,2026-10-27
+opendata.fortsmithar.gov,https://opendata.fortsmithar.gov,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+opendata.go.tz,https://opendata.go.tz,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+opendata.gov.cz,https://opendata.gov.cz/ckan,,not_ckan,200,,,data.gov.cz,not JSON,2026-10-27
+opendata.gov.je,https://opendata.gov.je,https://opendata.gov.je,ok,200,2.8.12,117,,,2026-10-27
+opendata.gov.mn,https://opendata.gov.mn,,not_ckan,200,,,,not JSON,2026-10-27
+opendata.hautsdefrance.fr,https://opendata.hautsdefrance.fr,,not_ckan,200,,,,not JSON,2026-10-27
+opendata.hu,https://opendata.hu,https://opendata.hu,ok,200,2.0,72,,,2026-10-27
+opendata.imet.gr,https://opendata.imet.gr,,not_ckan,404,,,,HTTP 404,2026-10-27
+opendata.kp.gov.pk,https://opendata.kp.gov.pk,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+opendata.leipzig.de,https://opendata.leipzig.de,https://opendata.leipzig.de,ok,200,2.10.7,412,,,2026-10-27
+opendata.lisra.jp,https://opendata.lisra.jp,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+opendata.manresa.cat,https://opendata.manresa.cat,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+opendata.materaevents.it,https://opendata.materaevents.it,,tls_error,,,,,"URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'opendata.materaevents.it'. (_ssl.c:1144)>",2026-10-27
+opendata.med.kg,https://opendata.med.kg,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+opendata.meerbusch.de,https://opendata.meerbusch.de,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+opendata.meteo.tn,https://opendata.meteo.tn,,not_ckan,404,,,,HTTP 404,2026-10-27
+opendata.mmdecin.cz,https://opendata.mmdecin.cz,,not_ckan,200,,,,not JSON,2026-10-27
+opendata.muenchen.de,https://opendata.muenchen.de,https://opendata.muenchen.de,ok,200,2.9.9,337,,,2026-10-27
+opendata.mzcr.cz,https://opendata.mzcr.cz,,not_ckan,200,,,www.nzip.cz,not JSON,2026-10-27
+opendata.mzp.cz,https://opendata.mzp.cz,,conn_error,,,,,ConnectionResetError: [Errno 54] Connection reset by peer,2026-10-27
+opendata.nhsbsa.net,https://opendata.nhsbsa.net,https://opendata.nhsbsa.net,ok,200,2.11.6,2180,,,2026-10-27
+opendata.oorlogsbronnen.nl,https://opendata.oorlogsbronnen.nl,,tls_error,,,,,"URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'opendata.oorlogsbronnen.nl'. (_ssl.c:1144)>",2026-10-27
+opendata.ozwillo.com,https://opendata.ozwillo.com,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+opendata.ozwillo.com,https://opendata.ozwillo.com/fr,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+opendata.penghu.gov.tw,https://opendata.penghu.gov.tw,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Subject Key Identifier (_ssl.c:1144)>,2026-10-27
+opendata.picturae.com,https://opendata.picturae.com,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+opendata.plzen.eu,https://opendata.plzen.eu,,not_ckan,404,,,,HTTP 404,2026-10-27
+opendata.portdebarcelona.cat,https://opendata.portdebarcelona.cat,,http_error,500,,,,HTTP 500,2026-10-27
+opendata.praha.eu,https://opendata.praha.eu,,not_ckan,200,,,lkod.cz,not JSON,2026-10-27
+opendata.semarangkota.go.id,https://opendata.semarangkota.go.id,,http_error,502,,,,HTTP 502,2026-10-27
+opendata.sjgov.org,https://opendata.sjgov.org,,http_error,403,,,,HTTP 403,2026-10-27
+opendata.slavrada.gov.ua,https://opendata.slavrada.gov.ua,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+opendata.slavuta-mvk.gov.ua,https://opendata.slavuta-mvk.gov.ua,https://opendata.slavuta-mvk.gov.ua,ok,200,2.11.5,248,,,2026-10-27
+opendata.swiss,https://opendata.swiss,https://opendata.swiss,ok,200,2.11.6,16133,,,2026-10-27
+opendata.ugr.es,https://opendata.ugr.es,https://opendata.ugr.es,ok,200,2.9.5,65,,,2026-10-27
+opendata.vlaanderen.be,https://opendata.vlaanderen.be,,not_ckan,404,,,www.vlaanderen.be,HTTP 404,2026-10-27
+opendata.wigan.gov.uk,https://opendata.wigan.gov.uk/ckan,,not_ckan,200,,,,not JSON,2026-10-27
+opendata.worcesterma.gov,https://opendata.worcesterma.gov,,not_ckan,404,,,,HTTP 404,2026-10-27
+opendatabc.ca,https://opendatabc.ca,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+opendatadafni.getmap.gr,https://opendatadafni.getmap.gr,,not_ckan,404,,,,HTTP 404,2026-10-27
+opendatalecce.apposta.biz,https://opendatalecce.apposta.biz,,conn_error,,,,,URLError: <urlopen error [Errno 51] Network is unreachable>,2026-10-27
+opendatanepal.com,https://opendatanepal.com,,not_ckan,404,,,,HTTP 404,2026-10-27
+opendatastore.brussels,https://opendatastore.brussels,,tls_error,,,,,"URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'opendatastore.brussels'. (_ssl.c:1144)>",2026-10-27
+openkg.cn,https://openkg.cn,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+opingogn.is,https://opingogn.is,,not_ckan,404,,,island.is,HTTP 404,2026-10-27
+ouvert.canada.ca,https://ouvert.canada.ca/ckan,,not_ckan,404,,,,HTTP 404,2026-10-27
+pacificdata.org,https://pacificdata.org/data,,http_error,403,,,,HTTP 403,2026-10-27
+pe.181.209.63.227.nip.io,https://pe.181.209.63.227.nip.io,,conn_error,,,,,URLError: <urlopen error [Errno 54] Connection reset by peer>,2026-10-27
+phoenixopendata.com,https://phoenixopendata.com,,http_error,403,,,,HTTP 403,2026-10-27
+playdrive-lb-4.ezylink.co,https://playdrive-lb-4.ezylink.co,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+poc-api.excise.go.th,https://poc-api.excise.go.th,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+podatki.gov.si,https://podatki.gov.si,https://podatki.gov.si,ok,200,2.2b,9326,,,2026-10-27
+portal.ai-global.org,https://portal.ai-global.org,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+portal.igg.ac.mn,https://portal.igg.ac.mn,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1144)>,2026-10-27
+portal.merit.mn,https://portal.merit.mn,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1144)>,2026-10-27
+portal.openbelgium.be,https://portal.openbelgium.be,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+portal.opendata.dk,https://portal.opendata.dk,https://portal.opendata.dk,ok,200,2.11.6,631,admin.opendata.dk,,2026-10-27
+proyectoarde.org,https://proyectoarde.org/data,,not_ckan,404,,,,HTTP 404,2026-10-27
+publications.aberdeenshire.gov.uk,https://publications.aberdeenshire.gov.uk,,not_ckan,404,,,,HTTP 404,2026-10-27
+radius.amplusdata.io,https://radius.amplusdata.io,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+rdm.inesctec.pt,https://rdm.inesctec.pt,https://rdm.inesctec.pt,ok,200,2.10.3,171,,,2026-10-27
+repository.participatorylab.org,https://repository.participatorylab.org,https://repository.participatorylab.org,ok,200,2.7.9,196,,,2026-10-27
+resiliencedata.nfwf.org,https://resiliencedata.nfwf.org,,http_error,403,,,,HTTP 403,2026-10-27
+rotterdamopendata.nl,https://rotterdamopendata.nl,,not_ckan,404,,,,HTTP 404,2026-10-27
+salforddataquay.uk,https://salforddataquay.uk,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+scidm.nchc.org.tw,https://scidm.nchc.org.tw,https://scidm.nchc.org.tw,ok,200,2.7.6,32066,,,2026-10-27
+scoda.co.za,https://scoda.co.za,,not_ckan,404,,,,HTTP 404,2026-10-27
+sprogressource.digst.govcloud.dk,https://sprogressource.digst.govcloud.dk,,not_ckan,404,,,,HTTP 404,2026-10-27
+sprogteknologi.dk,https://sprogteknologi.dk,https://sprogteknologi.dk,ok,200,2.11.3,217,,,2026-10-27
+staging.justicehub.in,https://staging.justicehub.in,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+taijiang.tw,https://taijiang.tw,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+test.data.ontario.ca,https://test.data.ontario.ca,,http_error,429,,,,HTTP 429,2026-10-27
+tpbs.igenco.co.th,https://tpbs.igenco.co.th,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+transparencia.alhaurindelatorre.es,https://transparencia.alhaurindelatorre.es,,not_ckan,404,,,,HTTP 404,2026-10-27
+transparencia.enargas.gob.ar,https://transparencia.enargas.gob.ar,https://transparencia.enargas.gob.ar,ok,200,2.7.4,3,,,2026-10-27
+transparencia.enargas.gov.ar,https://transparencia.enargas.gov.ar,https://transparencia.enargas.gov.ar,ok,200,2.7.4,3,,,2026-10-27
+transparenz.karlsruhe.de,https://transparenz.karlsruhe.de,https://transparenz.karlsruhe.de,ok,200,2.11.3,151,,,2026-10-27
+transportdata.be,https://transportdata.be,https://transportdata.be,ok,200,2.11.6,195,,,2026-10-27
+trouver.datasud.fr,https://trouver.datasud.fr,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+unaids.fjelltopp.org,https://unaids.fjelltopp.org,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+usmart.io,https://usmart.io/%23/org/angus/discovery?limit&20%26offset&0%26order&statistic.viewCount,,not_ckan,200,,,usmart.ai,not JSON,2026-10-27
+usmart.io,https://usmart.io/%23/org/dumgal,,not_ckan,200,,,usmart.ai,not JSON,2026-10-27
+web.transparencia.pe.gov.br,https://web.transparencia.pe.gov.br/ckan,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+www.basedosdados.org,https://www.basedosdados.org,,tls_error,,,,,URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1144)>,2026-10-27
+www.civicdata.io,https://www.civicdata.io,,not_ckan,200,,,civicdata.com,not JSON,2026-10-27
+www.dados.univasf.edu.br,https://www.dados.univasf.edu.br,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+www.data.brisbane.qld.gov.au,https://www.data.brisbane.qld.gov.au/data,,not_ckan,404,,,data.brisbane.qld.gov.au,HTTP 404,2026-10-27
+www.data.go.jp,https://www.data.go.jp/data,https://www.data.go.jp/data,ok,200,2.9.5,18826,data.e-gov.go.jp,,2026-10-27
+www.data.gov.ma,https://www.data.gov.ma/data,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
+www.data.gov.my,https://www.data.gov.my/data,,not_ckan,404,,,data.gov.my,HTTP 404,2026-10-27
+www.data.gov.uk,https://www.data.gov.uk,https://www.data.gov.uk,ok,200,,59639,ckan.publishing.service.gov.uk,,2026-10-27
+www.data.gv.at,https://www.data.gv.at/katalog,,not_ckan,404,,,,HTTP 404,2026-10-27
+www.data.qld.gov.au,https://www.data.qld.gov.au,https://www.data.qld.gov.au,ok,200,,188891,,,2026-10-27
+www.data.vic.gov.au,https://www.data.vic.gov.au/data,,not_ckan,404,,,,HTTP 404,2026-10-27
+www.datapoa.com.br,https://www.datapoa.com.br,,not_ckan,200,,,,not JSON,2026-10-27
+www.donneesquebec.ca,https://www.donneesquebec.ca,https://www.donneesquebec.ca,ok,200,2.11.5,1615,,,2026-10-27
+www.donostia.eus,https://www.donostia.eus/datosabiertos,https://www.donostia.eus/datosabiertos,ok,200,2.11.2,143,,,2026-10-27
+www.ecaidata.org,https://www.ecaidata.org,,not_ckan,404,,,,HTTP 404,2026-10-27
+www.eia.gov,https://www.eia.gov/environment/data.php/data,,not_ckan,404,,,,HTTP 404,2026-10-27
+www.fnde.gov.br,https://www.fnde.gov.br/dadosabertos,,not_ckan,200,,,dados.gov.br,not JSON,2026-10-27
+www.geo2france.fr,https://www.geo2france.fr/ckan,,not_ckan,404,,,,HTTP 404,2026-10-27
+www.nosdonnees.fr,https://www.nosdonnees.fr,,tls_error,,,,,"URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.nosdonnees.fr'. (_ssl.c:1144)>",2026-10-27
+www.odaa.dk,https://www.odaa.dk/ckan,,not_ckan,200,,,www.opendata.dk,not JSON,2026-10-27
+www.odata.org.il,https://www.odata.org.il,https://www.odata.org.il,ok,200,2.8.1,11599,,,2026-10-27
+www.openculture.gov.tn,https://www.openculture.gov.tn,,conn_error,,,,,URLError: <urlopen error [Errno 61] Connection refused>,2026-10-27
+www.opendata-hro.de,https://www.opendata-hro.de,https://www.opendata-hro.de,ok,200,2.12.0,281,,,2026-10-27
+www.opendata.nhs.scot,https://www.opendata.nhs.scot,https://www.opendata.nhs.scot,ok,200,2.8.4,105,,,2026-10-27
+www.opendatani.gov.uk,https://www.opendatani.gov.uk,,not_ckan,404,,,,HTTP 404,2026-10-27
+www.opendataphilly.org,https://www.opendataphilly.org,,not_ckan,404,,,opendataphilly.org,HTTP 404,2026-10-27
+www.opengov-muenchen.de,https://www.opengov-muenchen.de,,not_ckan,404,,,,HTTP 404,2026-10-27
+www.pigma.org,https://www.pigma.org/ckan,,not_ckan,404,,,,HTTP 404,2026-10-27
+www.tesourotransparente.gov.br,https://www.tesourotransparente.gov.br/ckan,https://www.tesourotransparente.gov.br/ckan,ok,200,2.5.9,91,,,2026-10-27
+www.transparencia.dadosabertos.mg.gov.br,https://www.transparencia.dadosabertos.mg.gov.br,,dns_error,,,,,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",2026-10-27
+www.transparencia.mg.gov.br,https://www.transparencia.mg.gov.br/dados-abertos/ckan,,http_error,403,,,,HTTP 403,2026-10-27
+www.wvcheckbook.gov,https://www.wvcheckbook.gov,,timeout,,,,,URLError: <urlopen error timed out>,2026-10-27
