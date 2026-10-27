@@ -213,13 +213,13 @@ Items from the 2023 doc and from `readme.md`. Status on 2026-10-27.
 3. Output: **static HTML in the repo**. GitHub Pages can serve it later.
 4. Legacy CSVs: **no backfill**. They do not give history.
 5. Priorities: P1 org stats, P2 report, P3 snapshots and diff, P4 portal registry. See `docs/BACKLOG.md`.
+6. Datasets with no organization go to the group `_none` / "(no organization)". africaopendata.org has 1974 of 6982 such datasets.
 
 ### Still open
 
-1. What group gets datasets with no organization? (P1 spec decides.)
-2. Where do snapshots live (repo, release assets, other storage), and how often do we take them? (P3.)
-3. Do we use the 2023 xlsx (data.gov.ro, 2023-09-03) as one early history point? Not chosen now.
-4. Do we download the actual files (as deathy/data-gov-ro-data-download does)? Not chosen now; not in P1–P4.
-5. Which candidate portals do we add, and what is the rule (for example: CKAN API works, size under a limit)? (P4.)
-6. Does the CKAN activity stream (`package_activity_list`) give better history than resource dates? Since CKAN 2.10 it is an optional plugin, so some portals can disable it (not checked).
-7. Does a resource keep its `created` date when the publisher replaces the file? If not, uploads are undercounted. Compare `created` with `last_modified` in P1.
+1. Where do snapshots live (repo, release assets, other storage), and how often do we take them? (P3.)
+2. Do we use the 2023 xlsx (data.gov.ro, 2023-09-03) as one early history point? Not chosen now.
+3. Do we download the actual files (as deathy/data-gov-ro-data-download does)? Not chosen now; not in P1–P4.
+4. Which candidate portals do we add, and what is the rule (for example: CKAN API works, size under a limit)? (P4.)
+5. Does the CKAN activity stream (`package_activity_list`) give better history than resource dates? Since CKAN 2.10 it is an optional plugin, so some portals can disable it (not checked).
+6. Does a resource keep its `created` date when the publisher replaces the file? Measured 2026-10-27: on data.gov.ro, 2033 of 39804 resources have `last_modified` more than 1 day after `created`; P1 counts these as updates. On data.humdata.org, 58156 of 191615 have `last_modified` before `created`, so HDX `created` is probably not the first upload. See `docs/specs/P1-org-stats.md`.

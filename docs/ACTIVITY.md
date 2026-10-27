@@ -1,5 +1,21 @@
 # Activity
 
+## 2026-10-27 — P1 spec and brief
+
+**Done**
+- Wrote `docs/specs/P1-org-stats.md` (definitions, output files, invariants, interface) and `docs/briefs/P1-org-stats.md` for Sonnet.
+- Measured resource dates on the full `datasets.jsonl` files from the ingest session. data.gov.ro: 39804 resources, 2033 with `last_modified` > `created` + 1 day, 0 the other way. data.humdata.org: 191615, 92995 later, 58156 earlier. africaopendata.org: 19573, 1019 later, 0 earlier; 1974 of 6982 datasets have no organization. No resource lacks `created`.
+
+**Hard**
+- HDX `created` dates are not reliable as first-upload dates. P1 does not fix this; P2 must show a note.
+- `datasets.jsonl` sizes (104 MB, 965 MB) exceed the GitHub file limit.
+
+**Decided**
+- An update (`last_modified` more than 1 day after `created`) is a secondary metric. Rationale: on data.gov.ro, 5% of resources were replaced later, and `created` alone misses them. Cost of the alternative (uploads only): replacement activity is invisible.
+- The as-of date comes from the data (latest `metadata_modified`), not from the clock. Rationale: reruns give the same output. Cost: a portal with no recent changes gets an older window.
+- Datasets with no organization go to `_none`. Cost of dropping them: 28% of africaopendata.org would disappear.
+- Output goes to `data/<host>/stats/` and is not committed until the data commit policy is set.
+
 ## 2026-10-27 — Priorities set
 
 **Done**
