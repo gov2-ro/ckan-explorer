@@ -1,5 +1,18 @@
 # Activity
 
+## 2026-10-27 — Sample portal portal.opendata.dk; non-CKAN portals checked
+
+**Done**
+- Fetched portal.opendata.dk (631 datasets, 2,440 resources, 20 organizations) with `fetch-datasets.py`; ran `org-stats.py` and `report.py`. The page is 32 KB.
+- Checked data.europa.eu, data.gov.sg and data.gov.my. All three return 404 on the CKAN API. Each has its own JSON API (see the backlog).
+
+**Hard**
+- `requests` and `tqdm` were not installed. I made a venv in the scratchpad and ran the fetch there. The system Python is unchanged.
+
+**Decided**
+- Only portal.opendata.dk as a sample (user). Cost: three portals only in the report until P6 runs.
+- The non-CKAN portals stay out of this tool for now. Cost: no Singapore, Malaysia or EU-wide view.
+
 ## 2026-10-27 — Browser merged into the portal page; HDX data removed (user decisions)
 
 **Done**

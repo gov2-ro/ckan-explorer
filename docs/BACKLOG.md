@@ -13,13 +13,14 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 - [ ] P3c: retention of snapshot releases (about 900 MB a year expected). Scheduled, dated fetches; list new, changed and deleted datasets.
 - [x] **P4 — Portal registry.** `portal-probe.py` → `docs/reference/portal-probe.csv`. Spec: `docs/specs/P4-portal-registry.md`.
 - [x] **P5 — Choose portals to add.** Rule (user): Romania + EU national portals. List: `docs/reference/portals-selected.csv` (12 portals: 3 current, 1 RO, 8 EU national).
-- [ ] **P6 — Fetch the active new portals** (ingest work) and run P1 and P2 on them: data.primariatm.ro, podatki.gov.si, avoindata.fi, data.gov.lv, portal.opendata.dk.
+- [ ] **P6 — Fetch the active new portals** (ingest work) and run P1 and P2 on them: data.primariatm.ro, podatki.gov.si, avoindata.fi, data.gov.lv. (portal.opendata.dk is done.)
 - [x] **P7 — Dataset browser.** `browse.py` (a module used by `report.py`) adds a "Datasets" section to `site/<host>.html` and writes `site/<host>-datasets.js` (gitignored). Spec: `docs/specs/P7-dataset-browser.md`. Done 2026-10-27. The fields UI is built but hidden until `fields.jsonl` exists. Tests: `tests/test_browse.py`.
 - [ ] **P8 — Fetch resource fields.** `fetch-fields.py`: `datastore_search?limit=0` per `datastore_active` resource. Spec: `docs/specs/P8-fetch-fields.md`. Prior art checked: none found for a whole portal.
 - [ ] Later: activate the large portals (ckan.govdata.de, data.gov.gr, data.gov.ie, data.overheid.nl, data.humdata.org) when development is stable. Check the URLs in `docs/reference/ckan-instances.csv` (API works, dataset count, CKAN version); choose portals to add.
 - [ ] katalog.data.go.id: the host does not resolve (DNS error, 2026-10-27). Check again before P1 runs.
 
-- [ ] Add 2–3 small sample portals (proposal: portal.opendata.dk 631, data.gov.lv 1,574, avoindata.fi 2,611 datasets). Then run `fetch-datasets.py`, `org-stats.py`, `report.py`. Waiting for the user's choice.
+- [x] Add one small sample portal: portal.opendata.dk (user chose it; English). Done 2026-10-27: 631 datasets, 2,440 resources, 20 organizations.
+- [ ] Non-CKAN portals (checked 2026-10-27): data.europa.eu (own search API, 2.04 million datasets), data.gov.sg (own v2 API), data.gov.my (own API). `fetch-datasets.py` does not work on them. They need a fetcher and an adapter to the CKAN package format.
 
 ## Bugs and defects
 

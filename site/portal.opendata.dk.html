@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>portal.opendata.dk - publishing report</title>
+<style>
+:root{--bg:#fff;--fg:#1d1d1b;--muted:#5d5d58;--line:#d9d8d3;--panel:#f6f5f2;--link:#1c5cab;
+--h0:#fff;--h1:#cde2fb;--h2:#86b6ef;--h3:#3987e5;--h4:#0d366b;--btn:#eceae5;--btn-on:#1c5cab;--btn-on-fg:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#1b1b19;--fg:#ecebe6;--muted:#a3a29b;--line:#3a3a36;--panel:#242422;--link:#86b6ef;
+--h0:#1b1b19;--h1:#104281;--h2:#1c5cab;--h3:#3987e5;--h4:#b7d3f6;--btn:#2d2d2a;--btn-on:#86b6ef;--btn-on-fg:#10151c}}
+*{box-sizing:border-box}
+body{margin:0;padding:16px;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1100px;margin:0 auto}
+h1{font-size:1.4rem;margin:0 0 4px}h2{font-size:1.15rem;margin:28px 0 8px}
+a{color:var(--link)}
+.sub{color:var(--muted);margin:0 0 12px}
+.counts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.counts div{background:var(--panel);border-radius:6px;padding:6px 10px;min-width:96px}
+.counts b{display:block;font-size:1.05rem}.counts span{color:var(--muted);font-size:.8rem}
+.note{border-left:3px solid var(--link);background:var(--panel);padding:8px 12px;margin:12px 0}
+.bar{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 0}
+.grp{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.grp>span{color:var(--muted);font-size:.85rem;margin-right:2px}
+button{font:inherit;font-size:.85rem;border:0;border-radius:6px;padding:5px 10px;background:var(--btn);color:var(--fg);cursor:pointer}
+button[aria-pressed=true]{background:var(--btn-on);color:var(--btn-on-fg)}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%}
+th,td{padding:4px 8px;text-align:left;border-bottom:1px solid var(--line);font-size:.85rem}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.heat td.c,.heat th.c{padding:0;width:14px;min-width:14px;height:20px;border:1px solid var(--bg);text-align:center}
+.heat.years td.c,.heat.years th.c{width:44px;min-width:44px}
+.heat th.c{height:auto;font-weight:400;color:var(--muted);font-size:.7rem}
+.heat th.c.v{writing-mode:vertical-rl;padding:4px 0;white-space:nowrap}
+.heat td.org{min-width:170px;max-width:260px}
+.l0{background:var(--h0)}.l1{background:var(--h1)}.l2{background:var(--h2)}.l3{background:var(--h3)}.l4{background:var(--h4)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0;font-size:.8rem;color:var(--muted)}
+.legend i{display:inline-block;width:16px;height:14px;border:1px solid var(--line);vertical-align:-2px;margin-right:4px}
+footer{margin-top:32px;color:var(--muted);font-size:.8rem}
+
+.ctl{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.ctl input,.ctl select{font:inherit;font-size:.9rem;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);max-width:100%}
+.ctl input{flex:1 1 220px}
+details.ds{border-bottom:1px solid var(--line);padding:6px 4px}
+details.ds>summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:2px 12px;align-items:baseline}
+details.ds .t{font-weight:600;flex:1 1 280px}
+details.ds .m{color:var(--muted);font-size:.8rem}
+.body{padding:8px 0 8px 16px}
+.body p{margin:4px 0}.tag{display:inline-block;background:var(--panel);border-radius:4px;padding:0 6px;margin:0 4px 4px 0;font-size:.8rem}
+.fl{margin:4px 0 0;padding-left:18px;font-size:.8rem;columns:2 220px}
+.pager{display:flex;gap:8px;align-items:center;margin:12px 0}
+</style>
+</head>
+<body>
+<main>
+<p><a href="index.html">All portals</a></p>
+<h1><a href="https://portal.opendata.dk">portal.opendata.dk</a></h1>
+<p class="sub">As of 2026-09-28</p>
+<div class="counts"><div><b>631</b><span>Datasets</span></div><div><b>2,440</b><span>Resources</span></div><div><b>2,440</b><span>Uploads</span></div><div><b>893</b><span>Updates</span></div><div><b>20</b><span>Organizations</span></div><div><b>0</b><span>Datasets with no organization</span></div></div>
+
+<h2>Top organizations</h2>
+<p class="sub">Each cell shows uploads (resources by creation date) in the period. Rows: top 50 organizations by uploads in the window plus top 50 by datasets.</p>
+<div class="bar"><div class="grp"><span>Period</span><span id="vbtn" class="grp"></span></div><div class="grp"><span>Sort</span><span id="sbtn" class="grp"></span></div></div>
+<div id="legend" class="legend"></div>
+<div id="heat" class="scroll"></div>
+<p class="sub" id="hcount"></p>
+<h2>Most active datasets</h2>
+<div class="bar"><div id="tbtn" class="grp"></div></div>
+<div id="tbl" class="scroll"></div>
+<h2 id="datasets">Datasets</h2>
+<p class="sub">Search all datasets of this portal. <span id="count"></span></p>
+<div class="ctl"><input id="q" type="search" placeholder="Search title, name, tags, organization" aria-label="Search"><select id="org" aria-label="Organization"></select><select id="fmt" aria-label="Format"></select><select id="fld" aria-label="Fields" hidden></select><select id="sort" aria-label="Sort"><option value="modified">Sort: last modified</option><option value="created">Sort: created</option><option value="resources">Sort: most resources</option><option value="title">Sort: title</option></select></div>
+<div id="list"></div>
+<div class="pager"><button id="prev">Previous</button><button id="next">Next</button><span class="sub" id="pinfo"></span></div>
+<footer>Data: P1 stats (orgs.csv, org-monthly.csv, datasets.csv) from portal.opendata.dk.</footer>
+</main>
+<script id="data" type="application/json">{"asof":"2026-09-28","base":"https://portal.opendata.dk","host":"portal.opendata.dk","orgs":[{"d":216,"lu":"2026-03-26","m":[["2013-07",32,0,16],["2013-08",36,0,20],["2013-09",6,31,6],["2013-10",33,27,29],["2013-11",7,0,3],["2014-01",7,0,2],["2014-03",7,0,3],["2014-04",30,0,10],["2014-06",4,0,3],["2014-08",15,5,6],["2014-09",2,0,1],["2014-10",42,0,2],["2014-11",2,0,1],["2014-12",5,0,3],["2015-01",4,0,1],["2015-02",20,0,8],["2015-04",18,5,7],["2015-05",47,1,8],["2015-06",8,0,3],["2015-07",41,6,6],["2015-09",1,3,1],["2015-10",0,3,0],["2015-11",4,6,2],["2015-12",60,5,20],["2016-01",10,5,4],["2016-02",6,0,2],["2016-03",0,38,0],["2016-04",1,0,1],["2016-05",2,0,1],["2016-06",5,0,2],["2016-07",20,0,3],["2016-09",1,0,1],["2016-11",15,0,3],["2016-12",6,0,2],["2017-01",48,0,1],["2017-02",1,0,1],["2017-05",86,0,2],["2017-06",27,0,1],["2017-08",2,0,1],["2017-09",3,0,2],["2017-10",1,0,1],["2018-01",1,0,1],["2018-02",4,0,4],["2018-06",0,2,0],["2018-10",3,0,1],["2018-11",4,0,2],["2018-12",6,0,5],["2019-01",35,0,35],["2019-03",6,0,2],["2019-04",2,0,1],["2019-07",2,0,2],["2019-10",0,4,0],["2019-11",2,1,2],["2019-12",3,0,2],["2020-01",0,366,0],["2020-05",6,0,2],["2020-06",2,0,1],["2020-08",0,1,0],["2020-09",3,0,1],["2020-12",0,3,0],["2021-05",3,0,1],["2021-06",2,0,1],["2021-07",4,0,2],["2021-08",1,0,1],["2022-02",2,0,1],["2022-04",10,0,4],["2022-05",2,0,1],["2022-07",3,0,1],["2022-08",12,0,6],["2023-06",4,0,1],["2023-11",1,0,1],["2024-04",4,0,1],["2024-06",1,0,1],["2024-10",1,0,1],["2024-11",3,0,2],["2025-03",4,0,1],["2025-04",2,0,2],["2025-10",1,0,1],["2025-12",2,0,2],["2026-03",1,0,1]],"n":"city-of-copenhagen","t":"Københavns Kommune"},{"d":121,"lu":"2025-09-08","m":[["2013-01",2,0,2],["2013-02",19,0,7],["2013-04",1,0,1],["2013-06",2,0,2],["2013-08",3,0,2],["2013-09",38,0,3],["2013-11",2,0,1],["2013-12",4,0,2],["2014-01",6,0,2],["2014-02",1,0,1],["2014-03",1,0,1],["2014-04",5,0,1],["2014-05",1,0,1],["2014-07",2,0,2],["2014-09",1,0,1],["2014-10",1,0,1],["2014-11",5,0,2],["2015-02",7,0,2],["2015-06",5,0,2],["2015-07",1,0,1],["2015-08",4,0,1],["2015-09",2,0,2],["2015-10",8,0,5],["2015-11",4,0,2],["2015-12",1,0,1],["2016-01",59,0,16],["2016-02",4,0,3],["2016-04",7,0,3],["2016-05",6,0,4],["2016-06",1,0,1],["2016-08",3,0,1],["2016-10",4,0,2],["2016-11",1,0,1],["2016-12",6,0,2],["2017-01",4,0,4],["2017-03",3,0,3],["2017-05",1,0,1],["2017-08",20,0,1],["2017-09",1,0,1],["2017-10",1,0,1],["2017-11",1,202,1],["2017-12",1,0,1],["2018-01",1,0,1],["2018-03",2,0,1],["2018-05",1,0,1],["2018-06",4,0,3],["2019-01",1,0,1],["2019-04",1,0,1],["2019-05",2,0,2],["2019-06",12,0,6],["2019-07",13,0,1],["2019-08",3,0,2],["2019-09",8,0,6],["2019-10",1,0,1],["2019-11",2,0,2],["2019-12",1,0,1],["2020-01",40,0,6],["2020-02",15,0,1],["2020-03",10,0,4],["2020-04",32,0,18],["2020-05",7,0,5],["2020-07",2,0,2],["2021-01",4,0,1],["2021-04",1,0,1],["2021-06",2,0,2],["2021-11",2,0,2],["2022-09",8,0,8],["2022-11",2,0,1],["2023-03",1,0,1],["2023-05",2,0,1],["2023-06",1,0,1],["2023-08",1,1,1],["2023-09",8,0,1],["2024-05",1,0,1],["2024-11",1,0,1],["2025-01",3,0,3],["2025-05",4,0,4],["2025-09",1,0,1]],"n":"city-of-aarhus","t":"Aarhus Kommune"},{"d":87,"lu":"2023-05-31","m":[["2015-05",53,0,16],["2015-06",2,0,2],["2015-07",2,0,1],["2015-09",6,0,5],["2015-10",65,0,26],["2015-11",30,0,11],["2015-12",4,0,1],["2016-01",2,0,1],["2016-02",1,0,1],["2016-03",31,0,13],["2016-04",2,0,1],["2016-05",12,0,6],["2016-06",12,0,5],["2016-08",6,0,1],["2016-09",4,0,2],["2017-03",11,0,6],["2018-06",0,113,0],["2018-09",23,0,9],["2018-10",1,0,1],["2019-07",11,0,6],["2020-04",9,0,5],["2020-05",6,0,2],["2020-06",0,4,0],["2020-07",0,1,0],["2021-06",10,1,5],["2022-02",34,0,4],["2022-03",0,10,0],["2022-05",1,0,1],["2022-06",11,0,6],["2022-11",1,0,1],["2023-05",11,0,6]],"n":"city-of-vejle","t":"Vejle Kommune"},{"d":20,"lu":"2025-12-01","m":[["2016-12",1,0,1],["2020-02",9,0,2],["2020-03",2,1,2],["2020-06",2,0,1],["2020-09",1,0,1],["2020-12",1,0,1],["2021-02",1,0,1],["2021-09",0,1,0],["2021-11",6,0,1],["2021-12",2,0,1],["2022-12",10,0,1],["2023-01",85,0,10],["2023-02",1,0,1],["2023-03",1,0,1],["2023-04",1,0,1],["2023-05",6,0,2],["2023-06",6,0,2],["2023-07",1,0,1],["2023-08",3,0,2],["2023-09",2,0,2],["2023-10",1,0,1],["2023-11",1,0,1],["2023-12",4,0,2],["2024-04",1,0,1],["2024-05",9,0,3],["2024-06",2,0,2],["2024-08",2,0,1],["2024-09",1,0,1],["2024-11",4,0,2],["2025-01",2,0,2],["2025-02",1,0,1],["2025-04",4,0,1],["2025-05",5,0,3],["2025-06",1,0,1],["2025-09",2,0,1],["2025-10",1,0,1],["2025-12",1,0,1]],"n":"open-data-dk","t":"Open Data DK"},{"d":21,"lu":"2017-02-07","m":[["2016-11",126,0,21],["2017-02",42,0,21]],"n":"ballerup-kommune","t":"Ballerup Kommune"},{"d":29,"lu":"2025-05-10","m":[["2016-06",1,0,1],["2016-08",2,0,1],["2016-12",19,0,10],["2019-09",144,0,18],["2025-05",1,0,1]],"n":"syddjurs-kommune","t":"Syddjurs Kommune"},{"d":19,"lu":"2022-07-05","m":[["2016-05",2,0,1],["2016-06",8,0,3],["2016-10",12,0,4],["2017-04",3,0,1],["2017-05",4,0,2],["2017-09",3,0,1],["2017-11",18,0,6],["2019-05",9,0,1],["2021-08",1,0,1],["2021-09",5,0,1],["2022-07",2,0,1]],"n":"silkeborg-kommune","t":"Silkeborg Kommune"},{"d":14,"lu":"2022-01-14","m":[["2016-10",6,0,3],["2017-12",15,0,8],["2018-01",1,0,1],["2021-06",2,0,1],["2021-08",20,0,1],["2022-01",1,0,1],["2023-02",0,18,0]],"n":"horsens-kommune","t":"Horsens Kommune"},{"d":7,"lu":"2026-01-13","m":[["2015-06",15,0,5],["2016-09",22,0,2],["2017-11",0,15,0],["2024-06",1,0,1],["2026-01",1,0,1]],"n":"region-midtjylland","t":"Region Midtjylland"},{"d":29,"lu":"2019-02-08","m":[["2016-05",2,0,2],["2016-08",17,0,15],["2016-12",2,0,1],["2018-01",1,0,1],["2018-02",1,0,1],["2018-06",8,0,8],["2019-02",4,0,2],["2020-02",0,4,0]],"n":"hedensted-kommune","t":"Hedensted Kommune"},{"d":26,"lu":"2025-03-14","m":[["2019-12",5,0,5],["2020-06",4,4,4],["2021-02",1,0,1],["2023-02",2,0,2],["2023-03",0,1,0],["2023-04",5,0,1],["2023-06",1,0,1],["2023-07",1,0,1],["2023-08",1,0,1],["2023-09",3,0,3],["2023-10",2,1,2],["2023-11",1,0,1],["2024-01",2,0,2],["2024-02",4,1,4],["2024-03",1,0,1],["2025-03",1,0,1],["2025-12",0,1,0]],"n":"randers-kommune","t":"Randers Kommune"},{"d":14,"lu":"2021-11-15","m":[["2015-10",2,0,2],["2015-11",1,0,1],["2017-03",17,0,1],["2017-04",1,0,1],["2017-05",1,0,1],["2019-10",1,0,1],["2020-02",4,0,4],["2020-03",1,0,1],["2020-08",1,0,1],["2021-11",2,0,2]],"n":"andres-data","t":"Andres data"},{"d":14,"lu":"2026-03-02","m":[["2017-05",1,0,1],["2018-02",1,0,1],["2019-11",1,0,1],["2020-03",14,0,6],["2021-08",0,1,0],["2022-01",1,0,1],["2025-03",1,0,1],["2025-05",1,1,1],["2026-02",1,0,1],["2026-03",2,0,1]],"n":"city-of-frederiksberg","t":"Frederiksberg Kommune"},{"d":2,"lu":"2023-08-02","m":[["2021-04",2,0,1],["2021-09",2,0,1],["2021-11",2,0,1],["2023-08",6,0,1]],"n":"geodanmark","t":"GeoDanmark"},{"d":2,"lu":"2019-05-14","m":[["2019-05",8,0,2]],"n":"vejdirektoratet","t":"Vejdirektoratet"},{"d":5,"lu":"2017-12-06","m":[["2017-04",5,0,4],["2017-12",1,0,1]],"n":"egedal-kommune","t":"Egedal Kommune"},{"d":2,"lu":"2022-08-22","m":[["2022-08",2,0,2]],"n":"region-hovedstaden","t":"Region Hovedstaden"},{"d":1,"lu":"2017-06-21","m":[["2017-06",1,0,1]],"n":"favrskov-kommune","t":"Favrskov kommune"},{"d":1,"lu":"2017-11-20","m":[["2017-11",1,0,1]],"n":"ikast-brande-kommune","t":"Ikast-Brande Kommune"},{"d":1,"lu":"2018-10-12","m":[["2018-10",1,0,1]],"n":"viborg-kommune","t":"Viborg Kommune"}],"tables":{"months":[["open-data-dk-nyhedsbreve","Open Data DK Nyhedsbreve","Open Data DK",59,24,"2020-02-27","2025-09-08",2020],["restanceopgorelser","Restanceopgørelser","Aarhus Kommune",48,11,"2017-08-03","2019-12-06",855],["referater-fra-open-data-dk-bestyrelsesmoder","Referater fra Open Data DK bestyrelsesmøder","Open Data DK",48,11,"2023-01-12","2025-01-29",748],["fuldtidsstillinger","Fuldtidsstillinger","Vejle Kommune",27,10,"2015-05-21","2023-05-31",2932],["kon-og-alder","Køn og alder","Vejle Kommune",27,9,"2015-05-21","2023-05-31",2932],["arbejdsulykker","Arbejdsulykker","Vejle Kommune",18,9,"2015-05-21","2023-05-31",2932],["ansatte-pa-saerlige-vilkar","Ansatte på særlige vilkår","Vejle Kommune",9,9,"2015-05-21","2023-05-31",2932],["personaleomsaetning","Personaleomsætning","Vejle Kommune",9,9,"2015-09-21","2023-05-31",2809],["mest-reseverede-titler-ved-vejle-bibliotekerne","Mest reserverede titler ved Vejle Bibliotekerne","Vejle Kommune",13,8,"2015-09-23","2016-09-02",345],["sygefravaer","Sygefravær","Vejle Kommune",8,8,"2016-03-15","2023-05-31",2633],["co2-regnskab","CO2 regnskab","Københavns Kommune",8,7,"2014-08-26","2025-10-02",4055],["statistik-pa-odaa","Statistik om www.odaa.dk","Aarhus Kommune",7,5,"2015-06-15","2017-12-02",901],["transaktionsdata-fra-aarhus-kommunes-biblioteker","Transaktionsdata fra Aarhus Kommunes Biblioteker","Aarhus Kommune",5,5,"2014-02-04","2018-06-14",1591],["parkomat-transaktioner","Parkomat transaktioner","Københavns Kommune",25,4,"2013-11-25","2017-05-08",1260],["havnebadet-aarhus-kommune","Havnebadet - Aarhus Kommune","Aarhus Kommune",6,4,"2022-11-09","2023-06-20",223],["veje","Veje","Københavns Kommune",5,4,"2013-07-09","2016-04-04",1000],["beholdning-ved-aarhus-kommunes-biblioteker","Beholdning ved Aarhus Kommunes Biblioteker","Aarhus Kommune",5,4,"2013-02-05","2017-03-29",1513],["oversigtskort","Oversigtskort","Københavns Kommune",20,3,"2016-07-12","2019-11-27",1233],["geofa","Geografiske fagdata i GeoDanmark (GeoFA)","GeoDanmark",6,3,"2021-04-22","2021-11-04",196],["besogstal-og-abningstider-for-aarhus-kommunes-biblioteker","Besøgstal og åbningstider for Aarhus Kommunes Biblioteker","Aarhus Kommune",6,3,"2015-10-27","2019-08-08",1381],["sejrs-sedler","Sejrs Sedler","Aarhus Kommune",4,3,"2014-09-25","2015-02-20",148],["parkeringspladser","Parkeringspladser","Københavns Kommune",4,3,"2013-07-03","2013-10-14",103],["idraetsanlaeg","Idrætsanlæg","Københavns Kommune",4,3,"2013-07-09","2013-10-14",97],["monumenter","Monumenter","Københavns Kommune",4,3,"2013-07-09","2013-10-14",97],["bevaringsvaerdige-bygninger-i-aarhus-kommune","Bevaringsværdige bygninger i Aarhus Kommune","Aarhus Kommune",4,3,"2013-02-05","2020-04-02",2613]],"span":[["trafiktal","Trafiktal","Københavns Kommune",4,3,"2013-08-06","2026-03-26",4615],["co2-regnskab","CO2 regnskab","Københavns Kommune",8,7,"2014-08-26","2025-10-02",4055],["gongen","Gongen","Region Midtjylland",3,3,"2016-09-22","2026-01-13",3400],["cykelstativer","Cykelstativer","Københavns Kommune",4,2,"2013-10-29","2022-04-28",3103],["fuldtidsstillinger","Fuldtidsstillinger","Vejle Kommune",27,10,"2015-05-21","2023-05-31",2932],["kon-og-alder","Køn og alder","Vejle Kommune",27,9,"2015-05-21","2023-05-31",2932],["arbejdsulykker","Arbejdsulykker","Vejle Kommune",18,9,"2015-05-21","2023-05-31",2932],["ansatte-pa-saerlige-vilkar","Ansatte på særlige vilkår","Vejle Kommune",9,9,"2015-05-21","2023-05-31",2932],["personaleomsaetning","Personaleomsætning","Vejle Kommune",9,9,"2015-09-21","2023-05-31",2809],["bbr-ejendomme-og-bbr-bygninger","BBR-bygninger Aarhus","Aarhus Kommune",2,2,"2013-01-30","2020-05-25",2672],["sygefravaer","Sygefravær","Vejle Kommune",8,8,"2016-03-15","2023-05-31",2633],["bevaringsvaerdige-bygninger-i-aarhus-kommune","Bevaringsværdige bygninger i Aarhus Kommune","Aarhus Kommune",4,3,"2013-02-05","2020-04-02",2613],["bbr-bygning-helarsbeboelse","BBR-bygning-helårsbeboelse","Vejle Kommune",9,2,"2016-03-01","2022-02-08",2170],["open-data-dk-nyhedsbreve","Open Data DK Nyhedsbreve","Open Data DK",59,24,"2020-02-27","2025-09-08",2020],["luftforurening","Luftforurening","Københavns Kommune",4,2,"2014-03-05","2019-07-22",1965],["transaktionsdata-fra-aarhus-kommunes-biblioteker","Transaktionsdata fra Aarhus Kommunes Biblioteker","Aarhus Kommune",5,5,"2014-02-04","2018-06-14",1591],["beholdning-ved-aarhus-kommunes-biblioteker","Beholdning ved Aarhus Kommunes Biblioteker","Aarhus Kommune",5,4,"2013-02-05","2017-03-29",1513],["solcelleanlaeg","Solcelleanlæg","Aarhus Kommune",3,2,"2016-05-18","2020-07-09",1513],["besogstal-og-abningstider-for-aarhus-kommunes-biblioteker","Besøgstal og åbningstider for Aarhus Kommunes Biblioteker","Aarhus Kommune",6,3,"2015-10-27","2019-08-08",1381],["kobenhavn-adresser","København adresser","Københavns Kommune",4,2,"2018-12-05","2022-08-01",1335],["parkomat-transaktioner","Parkomat transaktioner","Københavns Kommune",25,4,"2013-11-25","2017-05-08",1260],["oversigtskort","Oversigtskort","Københavns Kommune",20,3,"2016-07-12","2019-11-27",1233],["affald","Affald","Københavns Kommune",2,2,"2016-09-08","2019-11-29",1177],["ejendomsfortegnelse","Ejendomsfortegnelse","Aarhus Kommune",2,2,"2013-01-30","2016-01-11",1076],["cvr-produktionsenheder","CVR produktionsenheder i Aarhus Kommune","Aarhus Kommune",8,2,"2013-02-05","2016-01-11",1070]],"uploads":[["taellinger-kryds","Tællinger, kryds","Københavns Kommune",115,2,"2017-01-25","2017-05-23",118],["open-data-dk-nyhedsbreve","Open Data DK Nyhedsbreve","Open Data DK",59,24,"2020-02-27","2025-09-08",2020],["restanceopgorelser","Restanceopgørelser","Aarhus Kommune",48,11,"2017-08-03","2019-12-06",855],["referater-fra-open-data-dk-bestyrelsesmoder","Referater fra Open Data DK bestyrelsesmøder","Open Data DK",48,11,"2023-01-12","2025-01-29",748],["kommunalvalg-og-amtsradsvalg-1997","Kommunalvalg og Amtsrådsvalg 1997","Aarhus Kommune",44,2,"2013-09-06","2016-01-06",852],["fredede-traeer","Fredede træer","Københavns Kommune",40,1,"2014-10-13","2014-10-13",0],["friluftslivtemaer_aarhus","Friluftsliv Aarhus","Aarhus Kommune",32,1,"2020-01-24","2020-01-31",7],["valgundersogelse-2001","Valgundersøgelse 2001","Aarhus Kommune",30,2,"2013-09-06","2016-01-07",853],["fuldtidsstillinger","Fuldtidsstillinger","Vejle Kommune",27,10,"2015-05-21","2023-05-31",2932],["kon-og-alder","Køn og alder","Vejle Kommune",27,9,"2015-05-21","2023-05-31",2932],["taellinger-snittaellinger","Tællinger, snittællinger","Københavns Kommune",27,1,"2017-06-06","2017-06-06",0],["parkomat-transaktioner","Parkomat transaktioner","Københavns Kommune",25,4,"2013-11-25","2017-05-08",1260],["energiregnskaber-regionmidtjylland-2013","Energiregnskaber i Region Midtjylland 2013","Region Midtjylland",21,1,"2016-09-16","2016-09-16",0],["oversigtskort","Oversigtskort","Københavns Kommune",20,3,"2016-07-12","2019-11-27",1233],["3d-bymodel-horsens-kommune","3D BYMODEL HORSENS KOMMUNE","Horsens Kommune",20,1,"2021-08-23","2021-08-27",4],["vesterbrogade-taellinger","Vesterbrogade tællinger","Københavns Kommune",19,1,"2015-07-06","2015-07-13",7],["arbejdsulykker","Arbejdsulykker","Vejle Kommune",18,9,"2015-05-21","2023-05-31",2932],["guidedanmark-oplevelser-overnantning-aktiviteter-i-hele-danmark","GuideDanmark - oplevelser, overnatning, aktiviteter i hele Danmark","Andres data",17,1,"2017-03-23","2017-03-23",0],["parkering-i-aarhus-kommune","Parkering i Aarhus Kommune – Zoner, Tilladelser og Pladser","Aarhus Kommune",16,2,"2020-02-26","2020-03-03",6],["stamblade-for-servicemalstraekninger","Stamblade for servicemalstrækninger","Københavns Kommune",16,1,"2015-05-21","2015-05-21",0],["eksempel-pa-cykelsamordning-pa-norrebrogade","Eksempel på cykelsamordning på nørrebrogade","Københavns Kommune",14,1,"2015-07-08","2015-07-08",0],["mest-reseverede-titler-ved-vejle-bibliotekerne","Mest reserverede titler ved Vejle Bibliotekerne","Vejle Kommune",13,8,"2015-09-23","2016-09-02",345],["naturbeskyttede-omrader-med-bilag4-arter-2013","Naturbeskyttede områder med Bilag 4 arter","Aarhus Kommune",10,2,"2019-09-06","2020-03-31",207],["faste-cykeltaellinger","Faste cykeltællinger","Københavns Kommune",10,1,"2015-05-11","2015-05-11",0],["faste-trafiktaellinger","Historiske trafiktællinger","Københavns Kommune",10,1,"2015-05-11","2015-05-11",0]]},"views":{"all":{"cols":["2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024","2025","2026"],"rows":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]},"m12":{"cols":["2025-10","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05","2026-06","2026-07","2026-08","2026-09"],"rows":[0,3,8,12]},"y5":{"cols":["2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-04","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-02","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05","2026-06","2026-07","2026-08","2026-09"],"rows":[0,1,2,3,5,6,7,8,10,11,12,13,16]}}}</script>
+<script>
+(function(){
+var D=JSON.parse(document.getElementById('data').textContent);
+var st={view:'all',sort:'uploads',tab:'span'};
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+function link(text,href){var a=el('a',null,text);a.setAttribute('href',href);return a}
+function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
+function buttons(id,opts,key,fn){
+  var g=document.getElementById(id);g.textContent='';
+  opts.forEach(function(o){
+    var b=el('button',null,o[1]);b.type='button';b.setAttribute('aria-pressed',st[key]===o[0]?'true':'false');
+    b.onclick=function(){st[key]=o[0];fn()};g.appendChild(b)})}
+var cache={};
+function cellMap(oi,view){
+  var k=view+':'+oi;if(cache[k])return cache[k];
+  var m={};D.orgs[oi].m.forEach(function(r){
+    var key=view==='all'?r[0].slice(0,4):r[0];var c=m[key]||(m[key]=[0,0,0]);
+    c[0]+=r[1];c[1]+=r[2];c[2]+=r[3]});
+  return cache[k]=m}
+function level(v,max){
+  if(v<=0)return 0;
+  return 1+Math.min(3,Math.floor(4*Math.log(1+v)/Math.log(1+max)))}
+function bound(k,max){
+  if(k===1)return 1;
+  return Math.max(1,Math.ceil(Math.expm1((k-1)/4*Math.log(1+max))))}
+function heat(){
+  var V=D.views[st.view],cols=V.cols;
+  buttons('vbtn',[['all','All years'],['y5','Last 5 years'],['m12','Last 12 months']],'view',heat);
+  buttons('sbtn',[['uploads','Uploads in window'],['last','Last upload'],['datasets','Datasets']],'sort',heat);
+  var rows=V.rows.map(function(oi){
+    var m=cellMap(oi,st.view),tot=0;
+    cols.forEach(function(c){if(m[c])tot+=m[c][0]});
+    return {oi:oi,m:m,tot:tot}});
+  rows.sort(function(a,b){
+    var A=D.orgs[a.oi],B=D.orgs[b.oi],d=0;
+    if(st.sort==='last')d=A.lu<B.lu?1:A.lu>B.lu?-1:0;
+    else if(st.sort==='datasets')d=B.d-A.d;
+    else d=b.tot-a.tot;
+    if(!d)d=b.tot-a.tot;
+    if(!d)d=A.n<B.n?-1:A.n>B.n?1:0;
+    return d});
+  var max=1;rows.forEach(function(r){cols.forEach(function(c){if(r.m[c]&&r.m[c][0]>max)max=r.m[c][0]})});
+  var t=el('table','heat'+(st.view==='all'?' years':''));
+  var h=el('tr');h.appendChild(el('th',null,'Organization'));
+  h.appendChild(el('th','n','Uploads'));h.appendChild(el('th','n','Datasets'));
+  cols.forEach(function(c){h.appendChild(el('th','c'+(st.view==='all'?'':' v'),c))});
+  var th=el('thead');th.appendChild(h);t.appendChild(th);
+  var tb=el('tbody');
+  rows.forEach(function(r){
+    var o=D.orgs[r.oi],tr=el('tr'),td=el('td','org');
+    if(o.n==='_none')td.textContent=o.t;
+    else td.appendChild(link(o.t,D.base+'/organization/'+encodeURIComponent(o.n)));
+    tr.appendChild(td);tr.appendChild(el('td','n',fmt(r.tot)));tr.appendChild(el('td','n',fmt(o.d)));
+    cols.forEach(function(c){
+      var v=r.m[c],u=v?v[0]:0,cell=el('td','c l'+level(u,max));
+      if(v)cell.setAttribute('title',o.t+' | '+c+' | uploads: '+v[0]+' | updates: '+v[1]+' | datasets'+(st.view==='all'?' (sum of months)':'')+': '+v[2]);
+      tr.appendChild(cell)});
+    tb.appendChild(tr)});
+  t.appendChild(tb);
+  var box=document.getElementById('heat');box.textContent='';box.appendChild(t);
+  var lg=document.getElementById('legend');lg.textContent='';
+  lg.appendChild(el('span',null,'Uploads per cell (log scale):'));
+  for(var k=0;k<=4;k++){
+    var s=el('span'),sw=el('i','l'+k);s.appendChild(sw);
+    var lo=k?bound(k,max):0,hi=k<4&&k?bound(k+1,max)-1:null,txt;
+    if(k===0)txt='0';else if(k===4)txt=lo+(lo<max?'-'+max:'');
+    else txt=hi>lo?lo+'-'+hi:String(lo);
+    s.appendChild(document.createTextNode(txt));lg.appendChild(s)}
+  document.getElementById('hcount').textContent=rows.length+' organizations shown.'}
+function tables(){
+  buttons('tbtn',[['span','Longest timespan'],['months','Most active months'],['uploads','Most uploads']],'tab',tables);
+  var t=el('table'),h=el('tr');
+  ['Title','Organization','Uploads','Active months','First upload','Last upload','Timespan (years)'].forEach(function(x,i){
+    h.appendChild(el('th',i>1&&i<4?'n':(i===6?'n':''),x))});
+  var th=el('thead');th.appendChild(h);t.appendChild(th);var tb=el('tbody');
+  D.tables[st.tab].forEach(function(r){
+    var tr=el('tr'),td=el('td');
+    td.appendChild(link(r[1]||r[0],D.base+'/dataset/'+encodeURIComponent(r[0])));tr.appendChild(td);
+    tr.appendChild(el('td',null,r[2]));
+    tr.appendChild(el('td','n',fmt(r[3])));tr.appendChild(el('td','n',fmt(r[4])));
+    tr.appendChild(el('td',null,r[5]));tr.appendChild(el('td',null,r[6]));
+    tr.appendChild(el('td','n',(r[7]/365.25).toFixed(1)));tb.appendChild(tr)});
+  t.appendChild(tb);var box=document.getElementById('tbl');box.textContent='';box.appendChild(t)}
+heat();tables();
+})();
+</script>
+<script src="portal.opendata.dk-datasets.js"></script>
+<script>
+(function(){
+var B=window.BROWSE,PAGE=50,S={q:"",org:"",fmt:"",fld:"",sort:"modified",page:0};
+function $(id){return document.getElementById(id);}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined&&text!==null)e.textContent=text;return e;}
+function link(href,text){var a=el("a",null,text);if(/^https?:\/\//.test(href))a.href=href;return a;}
+function opt(sel,v,t){var o=el("option",null,t);o.value=v;sel.appendChild(o);}
+function fmtSize(n){if(n===null||n===undefined)return "";if(n<1024)return n+" B";if(n<1048576)return (n/1024).toFixed(1)+" KB";if(n<1073741824)return (n/1048576).toFixed(1)+" MB";return (n/1073741824).toFixed(1)+" GB";}
+function orgTitle(o){return o?(B.orgs[o]||o):"(no organization)";}
+B.datasets.forEach(function(d){
+  d.fmts=[];d.res.forEach(function(r){if(d.fmts.indexOf(r.fmt)<0)d.fmts.push(r.fmt);});
+  d.hasf=d.res.some(function(r){return !!r.fields;});
+  d.hay=(d.title+" "+d.name+" "+d.tags.join(" ")+" "+orgTitle(d.org)).toLowerCase();
+});
+var sorts={
+  modified:function(a,b){return a.modified<b.modified?1:a.modified>b.modified?-1:0;},
+  created:function(a,b){return a.created<b.created?1:a.created>b.created?-1:0;},
+  resources:function(a,b){return b.res.length-a.res.length;},
+  title:function(a,b){return a.title.localeCompare(b.title);}
+};
+function filtered(){
+  var words=S.q.toLowerCase().split(/\s+/).filter(Boolean);
+  var out=B.datasets.filter(function(d){
+    if(S.org!==""&&d.org!==(S.org==="_none"?"":S.org))return false;
+    if(S.fmt&&d.fmts.indexOf(S.fmt)<0)return false;
+    if(S.fld==="yes"&&!d.hasf)return false;
+    return words.every(function(w){return d.hay.indexOf(w)>=0;});
+  });
+  return out.sort(sorts[S.sort]);
+}
+function resTable(d){
+  var t=el("table"),h=el("tr"),cols=["Resource","Format","Size","Created"];
+  if(B.has_fields)cols.push("Fields");
+  cols.forEach(function(c){h.appendChild(el("th",null,c));});
+  t.appendChild(h);
+  d.res.forEach(function(r){
+    var tr=el("tr");
+    tr.appendChild(el("td",null,r.name));tr.appendChild(el("td",null,r.fmt));
+    tr.appendChild(el("td","n",fmtSize(r.size)));tr.appendChild(el("td",null,r.created));
+    if(B.has_fields){
+      var td=el("td");
+      if(r.fields){
+        var dt=el("details"),sm=el("summary",null,r.fields.length+" fields"+(r.total!==null&&r.total!==undefined?", "+r.total+" rows":""));
+        dt.appendChild(sm);var ul=el("ul","fl");
+        r.fields.forEach(function(f){ul.appendChild(el("li",null,f[0]+" — "+f[1]));});
+        dt.appendChild(ul);td.appendChild(dt);
+      }
+      tr.appendChild(td);
+    }
+    t.appendChild(tr);
+  });
+  var w=el("div","scroll");w.appendChild(t);return w;
+}
+function fill(det,d){
+  var b=el("div","body");
+  if(d.notes)b.appendChild(el("p",null,d.notes));
+  var p=el("p");p.appendChild(link(B.base+"/dataset/"+encodeURIComponent(d.name),"Open on portal"));
+  b.appendChild(p);
+  if(d.license)b.appendChild(el("p","m","License: "+d.license));
+  b.appendChild(el("p","m","Created "+d.created+", modified "+d.modified));
+  if(d.tags.length){var tp=el("p");d.tags.forEach(function(t){tp.appendChild(el("span","tag",t));});b.appendChild(tp);}
+  if(d.res.length)b.appendChild(resTable(d));
+  det.appendChild(b);
+}
+function row(d){
+  var det=el("details","ds"),sm=el("summary");
+  sm.appendChild(el("span","t",d.title));
+  sm.appendChild(el("span","m",orgTitle(d.org)));
+  sm.appendChild(el("span","m",d.res.length+" res."));
+  sm.appendChild(el("span","m",d.fmts.join(", ")));
+  sm.appendChild(el("span","m",d.modified));
+  det.appendChild(sm);
+  det.addEventListener("toggle",function(){if(det.open&&det.children.length===1)fill(det,d);});
+  return det;
+}
+function render(){
+  var list=filtered(),pages=Math.max(1,Math.ceil(list.length/PAGE));
+  if(S.page>=pages)S.page=pages-1;
+  $("count").textContent=list.length.toLocaleString("en-US")+" of "+B.datasets.length.toLocaleString("en-US")+" datasets";
+  var box=$("list");box.textContent="";
+  if(!list.length)box.appendChild(el("p","sub","No dataset matches."));
+  list.slice(S.page*PAGE,(S.page+1)*PAGE).forEach(function(d){box.appendChild(row(d));});
+  $("pinfo").textContent="Page "+(S.page+1)+" of "+pages;
+  $("prev").disabled=S.page===0;$("next").disabled=S.page>=pages-1;
+}
+function bind(id,key){$(id).addEventListener("input",function(e){S[key]=e.target.value;S.page=0;render();});}
+var so=$("org");opt(so,"","All organizations");
+Object.keys(B.orgs).sort(function(a,b){return B.orgs[a].localeCompare(B.orgs[b]);}).forEach(function(k){opt(so,k,B.orgs[k]);});
+if(B.datasets.some(function(d){return d.org==="";}))opt(so,"_none","(no organization)");
+var sf=$("fmt");opt(sf,"","All formats");B.formats.forEach(function(f){opt(sf,f,f);});
+if(B.has_fields){var sl=$("fld");sl.hidden=false;opt(sl,"","Fields: any");opt(sl,"yes","Fields: known");bind("fld","fld");}
+bind("q","q");bind("org","org");bind("fmt","fmt");bind("sort","sort");
+$("prev").addEventListener("click",function(){S.page--;render();});
+$("next").addEventListener("click",function(){S.page++;render();});
+render();
+})();
+</script>
+</body>
+</html>
