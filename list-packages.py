@@ -1,7 +1,7 @@
 import requests, json
 
 ckan_instance = "https://data.gov.ro"
-data_root='data/'
+data_root='data/data.gov.ro/'
 
 # ckan_instance = "https://data.gov.md/ckan"
 # data_root='data/data.gov.md/'

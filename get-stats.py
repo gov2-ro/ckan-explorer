@@ -17,14 +17,14 @@ from tqdm import tqdm
 
 batch_size = 50
 
-# ckan_instance = 'https://data.gov.ro'
-# data_root = 'data/'
+ckan_instance = 'https://data.gov.ro'
+data_root = 'data/data.gov.ro/'
 
 # ckan_instance = "https://data.gov.md/ckan"
 # data_root='data/data.gov.md/'
 
-ckan_instance = "https://data.humdata.org/"
-data_root='data/data.humdata.org/'
+# ckan_instance = "https://data.humdata.org/"
+# data_root='data/data.humdata.org/'
 
 # ckan_instance = "https://catalog.data.gov/"
 # data_root='data/catalog.data.gov/'
@@ -65,7 +65,12 @@ pbar=tqdm(total=allcount)
 
 for dataset_id in data:
     response = requests.get(f"{ckan_instance}/api/3/action/package_show?id={dataset_id}")
-    dataset_info = response.json()["result"]
+    resp_json = response.json()
+    if not resp_json.get("success"):
+        tqdm.write(f"  [skip] {dataset_id}: {resp_json.get('error', response.status_code)}")
+        pbar.update(1)
+        continue
+    dataset_info = resp_json["result"]
     filtered_row = {}
     for column in columns:
         if column in dataset_info:
