@@ -1,5 +1,6 @@
 # Releases
 
+- v0.12.0 — 2026-10-27 — Portal page: one filterable dataset list, organization links, RSS of recent updates, file size and file-type stats; sample portal portal.opendata.dk.
 - v0.11.0 — 2026-10-27 — P7 dataset browser in the portal pages (`browse.py`), P8 fields fetch spec; HDX data removed.
 - v0.10.0 — 2026-10-27 — Skip large portals during development (`active` column); `.gitignore` fixed, `data/` no longer tracked.
 - v0.9.0 — 2026-10-27 — User decisions: weekly release-asset snapshots (P3b spec), selected portals list.
