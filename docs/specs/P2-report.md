@@ -16,6 +16,7 @@ The script writes to `site/` and overwrites the files each run:
 
 - `site/index.html` — the portal index.
 - `site/<host>.html` — one page per portal.
+- `site/<host>.rss.xml` — recent updates feed (P7).
 - `site/<host>-datasets.js` — data for the "Datasets" section (P7); only for portals that have `datasets.jsonl`.
 
 Rules for every page:
@@ -43,12 +44,12 @@ Portal host (link to the portal), as-of date, and the counts: datasets, resource
   - **Last 12 months:** one column per month, the 12 months that end with the as-of month.
 - Rows in a view: the union of the top 50 organizations by uploads in that view's window and the top 50 by `datasets`, without duplicates. Organizations with 0 uploads in the window are left out of that view.
 - Sort, chosen with buttons: uploads in the window (default), last upload, datasets.
-- Extra columns on the left: org title (link to `{portal}/organization/{org_name}`, no link for `_none`), uploads in the window, datasets.
+- Extra columns on the left: org title (with `datasets.jsonl`: link to the P7 list filtered by that organization, plus a small "portal ↗" link to `{portal}/organization/{org_name}`, none for `_none`; without it: link to the portal as before), uploads in the window, datasets.
 - Color scale: sequential, one hue, log scale (counts have a heavy tail). 0 is the background color. Show a legend with 4–5 steps and their values.
 
 ### Most active datasets
 
-Three tables, 25 rows each, chosen with buttons:
+Three tables, 25 rows each, chosen with buttons. **Replaced** when `datasets.jsonl` exists: the P7 list shows the same columns for all datasets, sortable and filterable (amended 2026-10-27). The tables remain for a portal that has stats only.
 
 - **Longest timespan:** by `timespan_days`, then `uploads`.
 - **Most active months:** by `active_months`, then `uploads`.

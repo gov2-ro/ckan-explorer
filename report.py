@@ -8,7 +8,7 @@ Usage:
 
 Reads <data>/<host>/stats/{orgs.csv,org-monthly.csv,datasets.csv,summary.json} and,
 for the dataset browser section, <data>/<host>/datasets.jsonl and fields.jsonl.
-Writes (overwriting) <out>/index.html, <out>/<host>.html and <out>/<host>-datasets.js.
+Writes (overwriting) <out>/index.html, <out>/<host>.html and <out>/<host>-datasets.js and <out>/<host>.rss.xml.
 Each page is one self-contained file (inline CSS and JavaScript, no external
 resources). The same input gives the same bytes: the clock is never used.
 Spec: docs/specs/P2-report.md. Standard library only.
@@ -129,7 +129,7 @@ def top_tables(datasets, org_titles):
     return {k: [row(d) for d in sorted(live, key=f)[:TABLE_N]] for k, f in keys.items()}
 
 
-def build_data(host, portal):
+def build_data(host, portal, browse_data=None):
     s = portal["summary"]
     orgs = portal["orgs"]
     as_of = s["as_of"]
@@ -145,18 +145,25 @@ def build_data(host, portal):
     org_out = []
     for n, i in enumerate(chosen):
         o = orgs[i]
-        org_out.append({"n": o["org_name"], "t": o["org_title"], "d": to_int(o["datasets"]),
-                        "lu": o["last_upload"], "m": cells[n]})
+        item = {"n": o["org_name"], "t": o["org_title"], "d": to_int(o["datasets"]),
+                "lu": o["last_upload"], "m": cells[n]}
+        if browse_data is not None:
+            item["s"] = browse_data["org_size"].get(o["org_name"], 0)
+        org_out.append(item)
     remap = {i: n for n, i in enumerate(chosen)}
     org_titles = {o["org_name"]: o["org_title"] for o in orgs}
-    return {
+    out = {
         "host": host,
         "base": portal_base(host),
         "asof": as_of,
         "views": {v: {"cols": cols[v], "rows": [remap[i] for i in rows[v]]} for v in cols},
         "orgs": org_out,
-        "tables": top_tables(portal["datasets"], org_titles),
     }
+    if browse_data is not None:  # the dataset list of the browser replaces the top tables
+        out["browse"] = True
+    else:
+        out["tables"] = top_tables(portal["datasets"], org_titles)
+    return out
 
 
 # ---------------------------------------------------------------- HTML output
@@ -207,7 +214,8 @@ JS = r"""
 var D=JSON.parse(document.getElementById('data').textContent);
 var st={view:'all',sort:'uploads',tab:'span'};
 function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
-function link(text,href){var a=el('a',null,text);a.setAttribute('href',href);return a}
+function link(text,href,cls){var a=el('a',cls||null,text);a.setAttribute('href',href);return a}
+function size(n){var u=[['GB',1073741824],['MB',1048576],['KB',1024]];for(var i=0;i<3;i++)if(n>=u[i][1])return (n/u[i][1]).toFixed(1)+' '+u[i][0];return n+' B'}
 function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
 function buttons(id,opts,key,fn){
   var g=document.getElementById(id);g.textContent='';
@@ -246,15 +254,18 @@ function heat(){
   var max=1;rows.forEach(function(r){cols.forEach(function(c){if(r.m[c]&&r.m[c][0]>max)max=r.m[c][0]})});
   var t=el('table','heat'+(st.view==='all'?' years':''));
   var h=el('tr');h.appendChild(el('th',null,'Organization'));
-  h.appendChild(el('th','n','Uploads'));h.appendChild(el('th','n','Datasets'));
+  h.appendChild(el('th','n','Uploads'));h.appendChild(el('th','n','Datasets'));if(D.browse)h.appendChild(el('th','n','Size'));
   cols.forEach(function(c){h.appendChild(el('th','c'+(st.view==='all'?'':' v'),c))});
   var th=el('thead');th.appendChild(h);t.appendChild(th);
   var tb=el('tbody');
   rows.forEach(function(r){
     var o=D.orgs[r.oi],tr=el('tr'),td=el('td','org');
-    if(o.n==='_none')td.textContent=o.t;
+    if(D.browse){
+      var fa=link(o.t,'#org='+encodeURIComponent(o.n));fa.title='Show the datasets of this organization';td.appendChild(fa);
+      if(o.n!=='_none'){var xa=link('portal \u2197',D.base+'/organization/'+encodeURIComponent(o.n),'ext');xa.title='Open the organization on '+D.host;td.appendChild(xa)}}
+    else if(o.n==='_none')td.textContent=o.t;
     else td.appendChild(link(o.t,D.base+'/organization/'+encodeURIComponent(o.n)));
-    tr.appendChild(td);tr.appendChild(el('td','n',fmt(r.tot)));tr.appendChild(el('td','n',fmt(o.d)));
+    tr.appendChild(td);tr.appendChild(el('td','n',fmt(r.tot)));tr.appendChild(el('td','n',fmt(o.d)));if(D.browse)tr.appendChild(el('td','n',o.s?size(o.s):''));
     cols.forEach(function(c){
       var v=r.m[c],u=v?v[0]:0,cell=el('td','c l'+level(u,max));
       if(v)cell.setAttribute('title',o.t+' | '+c+' | uploads: '+v[0]+' | updates: '+v[1]+' | datasets'+(st.view==='all'?' (sum of months)':'')+': '+v[2]);
@@ -285,37 +296,51 @@ function tables(){
     tr.appendChild(el('td',null,r[5]));tr.appendChild(el('td',null,r[6]));
     tr.appendChild(el('td','n',(r[7]/365.25).toFixed(1)));tb.appendChild(tr)});
   t.appendChild(tb);var box=document.getElementById('tbl');box.textContent='';box.appendChild(t)}
-heat();tables();
+heat();if(D.tables)tables();
 })();
 """
 
 
-def page(title, body, script=""):
+def page(title, body, script="", head=""):
     return ("<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n"
             "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n"
-            "<title>%s</title>\n<style>%s</style>\n</head>\n<body>\n<main>\n%s\n</main>\n%s</body>\n</html>\n"
-            % (html.escape(title), CSS, body, script))
+            "<title>%s</title>\n%s<style>%s</style>\n</head>\n<body>\n<main>\n%s\n</main>\n%s</body>\n</html>\n"
+            % (html.escape(title), head, CSS, body, script))
 
 
 def fmt_int(n):
     return "{:,}".format(int(n))
 
 
+TOP_HTML = (
+    "<h2>Most active datasets</h2>\n"
+    "<div class=\"bar\"><div id=\"tbtn\" class=\"grp\"></div></div>\n"
+    "<div id=\"tbl\" class=\"scroll\"></div>\n")
+
+
 def portal_page(host, portal, browse_data=None):
     s = portal["summary"]
-    data = build_data(host, portal)
+    data = build_data(host, portal, browse_data)
     esc = html.escape
-    counts = [("Datasets", s["datasets"]), ("Resources", s["resources"]), ("Uploads", s["uploads"]),
-              ("Updates", s["updates"]), ("Organizations", s["orgs"]),
-              ("Datasets with no organization", s["no_org_datasets"])]
+    counts = [("Datasets", s["datasets"]), ("Resources", s["resources"])]
+    if s["uploads"] != s["resources"]:  # uploads are resources with a creation date; same count when all have one
+        counts.append(("Uploads", s["uploads"]))
+    counts += [("Updates", s["updates"]), ("Organizations", s["orgs"])]
+    if s["no_org_datasets"]:
+        counts.append(("Datasets with no organization", s["no_org_datasets"]))
     cnt = "".join("<div><b>%s</b><span>%s</span></div>" % (fmt_int(v), esc(k)) for k, v in counts)
+    if browse_data is not None:
+        t = browse_data["totals"]
+        known = (100.0 * t["sized"] / t["files"]) if t["files"] else 0.0
+        cnt += ("<div><b>%s</b><span>Total file size (known for %.0f%% of files)</span></div>"
+                % (esc(browse.human_size(t["bytes"])), known))
     note = PORTAL_NOTES.get(host)
     note_html = "<p class=\"note\">%s</p>" % esc(note) if note else ""
     body = (
         "<p><a href=\"index.html\">All portals</a></p>\n"
         "<h1><a href=\"%(base)s\">%(host)s</a></h1>\n"
         "<p class=\"sub\">As of %(asof)s</p>\n"
-        "<div class=\"counts\">%(cnt)s</div>\n%(note)s\n"
+        "<div class=\"counts\">%(cnt)s</div>\n%(types)s%(note)s\n"
         "<h2>Top organizations</h2>\n"
         "<p class=\"sub\">Each cell shows uploads (resources by creation date) in the period. "
         "Rows: top 50 organizations by uploads in the window plus top 50 by datasets.</p>\n"
@@ -323,18 +348,21 @@ def portal_page(host, portal, browse_data=None):
         "<div class=\"grp\"><span>Sort</span><span id=\"sbtn\" class=\"grp\"></span></div></div>\n"
         "<div id=\"legend\" class=\"legend\"></div>\n"
         "<div id=\"heat\" class=\"scroll\"></div>\n<p class=\"sub\" id=\"hcount\"></p>\n"
-        "<h2>Most active datasets</h2>\n"
-        "<div class=\"bar\"><div id=\"tbtn\" class=\"grp\"></div></div>\n"
-        "<div id=\"tbl\" class=\"scroll\"></div>\n"
+        "%(top)s"
         "<footer>Data: P1 stats (orgs.csv, org-monthly.csv, datasets.csv) from %(host)s.</footer>"
     ) % {"base": esc(data["base"], quote=True), "host": esc(host), "asof": esc(s["as_of"]),
-         "cnt": cnt, "note": note_html}
+         "cnt": cnt, "note": note_html, "top": "" if browse_data is not None else TOP_HTML,
+         "types": "<div id=\"gtypes\" class=\"ft\"></div>\n" if browse_data is not None else ""}
     script = ("<script id=\"data\" type=\"application/json\">%s</script>\n<script>%s</script>\n"
               % (embed_json(data), JS))
     if browse_data is not None:
         body = body.replace("<footer>", browse.section(host) + "<footer>", 1)
         script += browse.script_tag(host) + "<script>%s</script>\n" % browse.JS
-    text = page(host + " - publishing report", body, script)
+    head = ""
+    if browse_data is not None:
+        head = ("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"%s - recently updated datasets\" "
+                "href=\"%s.rss.xml\">\n" % (esc(host, quote=True), esc(host, quote=True)))
+    text = page(host + " - publishing report", body, script, head)
     if browse_data is not None:
         text = text.replace("</style>", browse.CSS + "</style>", 1)
     return text
@@ -401,9 +429,11 @@ def main():
         jsonl = os.path.join(args.data, host, "datasets.jsonl")
         bdata = None
         if os.path.exists(jsonl):
+            stats = {d["id"]: d for d in portal["datasets"]}
             bdata = browse.build_data(host, portal_base(host), jsonl,
-                                      os.path.join(args.data, host, "fields.jsonl"))
+                                      os.path.join(args.data, host, "fields.jsonl"), stats)
             write(os.path.join(args.out, host + "-datasets.js"), browse.js_file(bdata))
+            write(os.path.join(args.out, host + ".rss.xml"), browse.rss(bdata))
         text = portal_page(host, portal, bdata)
         write(os.path.join(args.out, host + ".html"), text)
         print("%s: %d bytes" % (host, len(text.encode("utf-8"))))

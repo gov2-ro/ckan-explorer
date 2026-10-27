@@ -1,5 +1,35 @@
 # Activity
 
+## 2026-10-27 — Size and file-type stats; tile clean-up (user requests)
+
+**Done**
+- Added total file size and file-type shares: top tile and a type panel for the whole portal; a panel in the dataset section that follows the filters (so an organization filter gives the per-organization view); a "Size" column in the list and in the heatmap.
+- Hid the "Datasets with no organization" tile when 0 (data.gov.ro, portal.opendata.dk). Hid the "Uploads" tile, list column and filter when uploads equal resources.
+- Measured (all files, 1024-based units): data.gov.ro 98.7 GB over 17,299 of 39,804 files (43%), XML is 45.9% of files; africaopendata.org 4.1 GB, 899 of 19,573 files (5%); portal.opendata.dk 5.7 GB (decimal), 392 of 2,440 files. 46 tests pass.
+
+**Decided**
+- Answer to "resources vs uploads": an upload is a resource counted by the month of its `created` date (P1 spec). All three portals have 0 resources with no or bad `created`, so both numbers are equal everywhere (39,804; 19,573; 2,440). They would differ only for a resource with no valid date. Cost of hiding: if a portal later has such resources, the tile returns by itself.
+- File-type bars show the share of file count, not of size, because size is missing for most files. Size per type is in the tooltip and label, where known. Bars use one hue and direct labels, no categorical colors (dataviz skill: identity is the label).
+
+**Hard**
+- Totals are lower bounds, because many resources have no size. The page says what share of files has one.
+
+## 2026-10-27 — One dataset list, organization links, RSS (user requests)
+
+**Done**
+- Replaced the two dataset lists (P2 top-25 tables and the P7 browser) with one table: title, organization, resources, uploads, active months, first and last upload, timespan, modified. Columns sort; filters cover text, organization, format, modified in 7/30/365 days, minimum uploads, active months and years.
+- Heatmap organization names and list organization cells link to the filtered list (`#org=<name>`). Links to the portal are small and say so ("portal ↗", "Open on <host> ↗").
+- Added `site/<host>.rss.xml`: the 50 latest-modified datasets, links to the portal. Feed is valid XML for all three portals (data.gov.ro 24 KB).
+- 44 tests pass. Stub-DOM run on portal.opendata.dk (631 datasets): 50 rows per page, row opens and closes, org click gives 14, modified in 30 days gives 6, uploads of 50 or more gives 2, reset gives 631.
+
+**Hard**
+- No real browser again (extension not connected). Layout of the wide table at 360 px is unchecked; the table scrolls in its own container.
+
+**Decided**
+- The P2 top tables stay as the fallback for a portal without `datasets.jsonl`. Cost: two code paths; the benefit is that stats-only portals keep a list.
+- RSS items link to the portal, not to this site: the site has no public URL yet. Cost: the feed points off-site until a publish step exists.
+- "Modified" is `metadata_modified` (any metadata change), not the date of the last upload; the last-upload column shows the latter.
+
 ## 2026-10-27 — Sample portal portal.opendata.dk; non-CKAN portals checked
 
 **Done**

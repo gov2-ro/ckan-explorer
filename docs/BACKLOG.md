@@ -34,6 +34,9 @@ Statuses: `[ ]` open, `[~]` in progress, `[x]` done, `[-]` dropped.
 
 - [ ] P3 later: compare resource `created` and `size` in the diff; stream the sort if a portal needs too much memory (HDX: 260 MB now).
 
+- [x] P7 round 2 (user, 2026-10-27): one filtered list with the most-active columns, organization links, portal links secondary, RSS of recent updates.
+- [x] P7 round 3 (user, 2026-10-27): total file size and file-type shares, global and per organization (the panel follows the filters); heatmap size column; hide the no-organization tile at 0; hide the uploads tile and column when uploads equal resources.
+- [ ] P7: resource sizes are missing for many files (data.gov.ro 57%, africaopendata.org 95%). Totals are lower bounds. Study whether `size` is empty or `0`, and whether a HEAD request is worth it.
 - [ ] P7: check the "Datasets" section of `site/*.html` in a real browser (360 px, dark theme, large lists). Only a syntax check and a stub-DOM run were done; the browser extension was not connected.
 - [ ] P7: the `*-datasets.js` data files are large (data.gov.ro 6.6 MB, africaopendata.org 5.0 MB; HDX was 38 MB). They are gitignored. A later publish step (GitHub Pages) must build them.
 - [ ] P2: check the pages in a real browser (360 px width, dark theme, tooltips, vertical month headers). Not done yet: the browser extension was not connected on 2026-10-27.
